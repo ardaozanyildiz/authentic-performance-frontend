@@ -16,6 +16,7 @@ function Navbar() {
         <Link to="/">{t('nav.home')}</Link>
         <Link to="/products">{t('nav.products')}</Link>
         <Link to="/contact">{t('nav.contact')}</Link>
+        <Link to="/rendez-vous">{t('nav.rendezVous')}</Link>
       </nav>
 
       <Link to="/" className="nav-logo">
@@ -24,11 +25,11 @@ function Navbar() {
 
       <div className="nav-right">
         <Link to="/login" className="profile-link" aria-label="Connexion">
-          <img src="/images/profil.jpg" alt="Profil" className="profile-img" />
+          <img src="/images/user.png" alt="Profil" className="profile-img" />
         </Link>
 
         <button className="lang-btn" onClick={changement}>
-          {langue === 'fr' ? 'English 🇬🇧' : 'Français 🇫🇷'}
+          {langue === 'fr' ? 'English' : 'Français'}
         </button>
       </div>
     </header>

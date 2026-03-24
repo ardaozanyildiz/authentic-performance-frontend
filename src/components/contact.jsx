@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import './contact.css';
 //Fichier pour conatacter l'entreprise ou juste voir les infos
 function Contact() {
@@ -7,10 +8,11 @@ function Contact() {
   return (
     <div className="contact-page">
       <h1>{t('contact.title')}</h1>
-      <p className="contact-subtitle">{t('contact.subtitle')}</p>
-
       <div className="contact-container">
-       
+        <div className="contact-help-box">
+          <p>{t('contact.helpText')}</p>
+        </div>
+
         <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
           <label>{t('contact.name')}</label>
           <input type="text" placeholder={t('contact.name')} />
@@ -52,6 +54,10 @@ function Contact() {
           <div className="info-item">
             <strong>{t('contact.hours')}</strong>
             <p>{t('contact.hoursValue')}</p>
+          </div>
+
+          <div className="info-item meeting-cta">
+            <p>{t('contact.meetingCTA')} <Link to="/rendez-vous">{t('contact.meetingLink')}</Link></p>
           </div>
         </div>
       </div>

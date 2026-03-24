@@ -10,6 +10,7 @@ const resources = {
         home: 'Accueil',
         products: 'Produits',
         contact: 'Contact',
+        rendezVous: 'Rendez-vous',
       },
       hero: {
         button: 'CONTACTEZ-NOUS',
@@ -54,6 +55,8 @@ const resources = {
       contact: {
         title: 'Contactez-nous',
         subtitle: 'Entrez en contact avec notre equipe.',
+        helpText:
+          'Pour toute question précise, n’hésitez pas à nous contacter. Notre équipe est à votre entière disposition pour vous répondre.',
         name: 'Nom complet',
         email: 'Email',
         subject: 'Sujet',
@@ -64,6 +67,13 @@ const resources = {
         phone: 'Telephone',
         hours: "Heures d'ouverture",
         hoursValue: 'Lundi - Vendredi: 7h00 - 16h00',
+        meetingCTA: 'Ou',
+        meetingLink: 'prenez un rendez-vous avec nous',
+      },
+      meeting: {
+        title: 'Prenez un rendez-vous avec nous',
+        helpText:
+          'Planifiez une rencontre avec notre équipe pour discuter de vos besoins spécifiques et de la réalisation de vos travaux.',
       },
       login: {
         title: 'Connexion',
@@ -90,6 +100,7 @@ const resources = {
         home: 'Home',
         products: 'Products',
         contact: 'Contact',
+        rendezVous: 'Appointment',
       },
       hero: {
         button: 'CONTACT US',
@@ -133,6 +144,8 @@ const resources = {
       contact: {
         title: 'Contact Us',
         subtitle: 'Get in touch with our team.',
+        helpText:
+          'Schedule a meeting with our team to discuss your specific needs and project requirements.',
         name: 'Full Name',
         email: 'Email',
         subject: 'Subject',
@@ -143,6 +156,13 @@ const resources = {
         phone: 'Phone',
         hours: 'Business Hours',
         hoursValue: 'Monday - Friday: 7:00 AM - 4:00 PM',
+        meetingCTA: 'Or',
+        meetingLink: 'book an appointment with us',
+      },
+      meeting: {
+        title: 'Book an appointment with us',
+        helpText:
+          'Schedule a meeting with our team to discuss your specific needs and project requirements',
       },
       login: {
         title: 'Login',
