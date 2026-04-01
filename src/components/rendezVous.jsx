@@ -22,10 +22,10 @@ function RendezVous() {
                 <InlineWidget
                     url="https://calendly.com/aysunonder8080/30min"
                     pageSettings={{
-                        backgroundColor: 'ffffff', // Couleur de fond
+                        backgroundColor: 'F9F8F6', // Couleur de fond
                         hideEventTypeDetails: false, // Cache ou non les infos à gauche
-                        primaryColor: 'c0392b',    // Change le bleu actuel par ton rouge !
-                        textColor: '333333'        // Change la couleur du texte
+                        primaryColor: 'C9B59C',    // Change le bleu actuel par ton rouge !
+                        textColor: '2d2f33'        // Change la couleur du texte
                     }}
                     styles={{ height: '700px', width: '100%' }}
                 />

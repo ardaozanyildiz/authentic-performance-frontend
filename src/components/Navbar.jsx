@@ -20,8 +20,8 @@ function Navbar() {
       </nav>
 
       <Link to="/" className="nav-logo">
-        Authentic Performance Productions      
-        </Link>
+        <img src="/images/logoSimple.png" alt="Authentic Performance Productions" />
+      </Link>
 
       <div className="nav-right">
         <Link to="/login" className="profile-link" aria-label="Connexion">
