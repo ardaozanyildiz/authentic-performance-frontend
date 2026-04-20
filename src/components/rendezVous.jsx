@@ -144,7 +144,7 @@ function RendezVous() {
           {status && (
             <p className="status-msg" style={{ 
               marginTop: '15px', fontWeight: 'bold', textAlign: 'center',
-              color: status.includes('Félicitations') || status.includes('Congratulations') ? '#2e7d32' : '#d32f2f' 
+              color: status.includes('Félicitations') || status.includes('Congratulations') ? '#000000' : '#d32f2f' 
             }}>
               {status}
             </p>
