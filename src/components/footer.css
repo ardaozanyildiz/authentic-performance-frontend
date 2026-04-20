@@ -1,0 +1,178 @@
+/* --- Global Footer --- */
+.site-footer {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  width: 100%;
+}
+
+/* --- Section Infolettre --- */
+.newsletter-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.envelope-icon {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.newsletter-section h2 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  min-width: 250px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  padding: 12px 30px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  height: 43px; /* Pour s'aligner avec le input */
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #C9B59C;
+}
+
+/* --- Section Principale Sombre --- */
+.footer-main {
+  background-color: #2a2a2a; /* Gris très foncé comme George Courey */
+  color: #ffffff;
+  padding: 80px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.brand-col .footer-logo-text {
+  color: #C9B59C; /* Ta couleur signature */
+  font-family: 'Playfair Display', serif; /* Ou une autre belle police serif */
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.brand-col p {
+  color: #bbb;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.links-col h4 {
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.links-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-col li {
+  margin-bottom: 15px;
+}
+
+.links-col a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.links-col a:hover {
+  color: #C9B59C;
+}
+
+/* --- Section Bas de page --- */
+.footer-bottom {
+  background-color: #222222;
+  border-top: 1px solid #444;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.social-links a, .legal-links a {
+  color: #888;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.2s;
+}
+
+.social-links a:hover, .legal-links a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .social-links a, .legal-links a {
+    margin: 0 10px;
+  }
+}

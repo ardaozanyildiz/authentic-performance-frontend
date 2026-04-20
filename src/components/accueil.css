@@ -1,251 +1,217 @@
-.hero-section {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* --- Styles globaux de la page Accueil --- */
+.accueil-page {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
 }
 
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.55);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+/* --- SECTION 1 : HÉROS (L'image de fond) --- */
+.hero-section {
+  /* Chemin vers ton image dans le dossier public/images/ */
+  background-image: url('/images/slide1.png'); 
+  background-size: cover;
+  background-position: center;
+  height: 85vh; 
   position: relative;
 }
 
+.hero-overlay {
+  /* On utilise un voile blanc très léger (10%) pour faire ressortir le texte sans cacher le motif */
+  background-color: rgba(255, 255, 255, 0.1); 
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .hero-content {
-  max-width: 760px;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  max-width: 900px;
+  padding: 40px;
+  /* Optionnel : un léger flou derrière le texte pour une lisibilité parfaite */
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
 
-.hero-overlay h1 {
-  color: white;
-  font-size: 42px;
-  font-weight: bold;
-  max-width: 760px;
-  line-height: 1.3;
+.hero-title {
+  color: #4a3728; /* Brun foncé pour matcher tes illustrations */
+  font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.hero-overlay p {
-  color: #ccc;
-  font-size: 16px;
-  max-width: 700px;
+.hero-subtitle {
+  color: #5d4d42; /* Brun plus doux */
+  font-size: 1.3rem;
+  margin-bottom: 40px;
   line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.hero-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.25);
-  color: white;
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.hero-arrow:hover {
-  background: rgba(201, 181, 156, 0.65);
-  border-color: rgba(201, 181, 156, 0.95);
-}
-
-.hero-arrow-left {
-  left: 28px;
-}
-
-.hero-arrow-right {
-  right: 28px;
+  font-weight: 400;
 }
 
 .hero-btn {
-  border: 1px solid white;
-  background: transparent;
-  color: white;
-  padding: 12px 35px;
-  font-size: 13px;
-  font-weight: 600;
+  background-color: #C9B59C; /* Ton beige signature */
+  color: #ffffff;
+  border: 2px solid #C9B59C;
+  padding: 15px 45px;
+  font-size: 1rem;
+  font-weight: bold;
   letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.3s;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .hero-btn:hover {
-  background-color: white;
-  color: #333;
+  background-color: #4a3728;
+  border-color: #4a3728;
+  transform: scale(1.05);
 }
 
-.hero-dots {
+/* --- SECTION 2 : EXPERTISE --- */
+.expertise-section {
+  padding: 100px 20px;
+  background-color: #F9F8F6; /* Rappel du beige du fond */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  color: #4a3728;
+}
+
+.section-divider {
+  width: 80px;
+  height: 3px;
+  background-color: #C9B59C;
+  margin: 0 auto 50px auto;
+}
+
+.expertise-grid {
   display: flex;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.hero-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-}
-
-.hero-dot.active {
-  background: #ffffff;
-}
-
-.home-about-section {
-  background: #f3f3f3;
-  padding: 70px 20px;
-}
-
-.home-about-container {
-  max-width: 1150px;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  align-items: stretch;
-  gap: 56px;
+  flex-wrap: wrap;
 }
 
-.home-about-image-wrap {
+.expertise-card {
+  background-color: #ffffff;
+  padding: 50px 30px;
   flex: 1;
-  min-width: 0;
+  min-width: 280px;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(74, 55, 40, 0.08); /* Ombre légèrement teintée en brun */
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
 }
 
-.home-about-image {
-  width: 100%;
-  height: 100%;
-  min-height: 620px;
-  object-fit: cover;
+.expertise-card:hover {
+  transform: translateY(-10px);
+  border-color: #C9B59C;
+}
+
+.icon-placeholder {
+  font-size: 3.5rem;
+  margin-bottom: 25px;
   display: block;
 }
 
-.home-about-content {
-  flex: 1;
-  min-width: 0;
+.expertise-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #4a3728;
+}
+
+.expertise-card p {
+  color: #777;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* --- SECTION 3 : À PROPOS --- */
+.about-section {
+  padding: 120px 20px;
+  background-color: #ffffff;
+}
+
+.about-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.home-about-content h2 {
-  margin: 0 0 22px;
-  color: #2d2d2d;
-  font-size: 52px;
-  line-height: 1.25;
-  font-weight: 700;
-}
-
-.home-about-content p {
-  margin: 0 0 16px;
-  color: #58636f;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.home-about-btn {
-  margin-top: 24px;
-  display: inline-flex;
+  max-width: 1200px;
+  margin: 0 auto;
   align-items: center;
-  justify-content: center;
-  border: 2px solid var(--color-accent-main);
-  color: var(--color-accent-main);
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.about-image-container {
+  flex: 1;
+  min-width: 350px;
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  /* Effet de bordure décorative en bas à gauche */
+  box-shadow: -25px 25px 0px -5px #F9F8F6, -25px 25px 0px 0px #C9B59C; 
+}
+
+.about-text-container {
+  flex: 1;
+  min-width: 350px;
+}
+
+.about-text-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #4a3728;
+  line-height: 1.2;
+}
+
+.about-text-container p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.secondary-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #C9B59C;
+  color: #ffffff;
+  padding: 14px 35px;
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 14px 26px;
-  width: fit-content;
-  transition: all 0.25s ease;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-.home-about-btn:hover {
-  background: var(--color-accent-main);
-  color: #fff;
+.secondary-btn:hover {
+  background-color: #4a3728;
+  box-shadow: 0 5px 15px rgba(201, 181, 156, 0.4);
 }
 
-@media (max-width: 768px) {
-  .hero-content {
-    min-height: 260px;
-    padding: 0 8px;
-  }
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .hero-title { font-size: 2.5rem; }
+  .about-container { flex-direction: column; text-align: center; }
+  .about-image-container { order: 2; }
+  .about-text-container { order: 1; }
+  .about-img { box-shadow: none; }
+}
 
-  .hero-overlay h1 {
-    font-size: 26px;
-  }
-
-  .hero-overlay p {
-    font-size: 13px;
-    margin-bottom: 24px;
-  }
-
-  .hero-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-  }
-
-  .hero-arrow-left {
-    left: 12px;
-  }
-
-  .hero-arrow-right {
-    right: 12px;
-  }
-
-  .hero-btn {
-    padding: 10px 24px;
-    font-size: 12px;
-  }
-
-  .home-about-section {
-    padding: 42px 16px;
-  }
-
-  .home-about-container {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .home-about-image {
-    min-height: 300px;
-  }
-
-  .home-about-content h2 {
-    font-size: 30px;
-    margin-bottom: 16px;
-  }
-
-  .home-about-content p {
-    font-size: 16px;
-    line-height: 1.75;
-  }
-
-  .home-about-btn {
-    font-size: 13px;
-    padding: 12px 20px;
-    margin-top: 14px;
-  }
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+  .hero-section { height: 70vh; }
+  .expertise-card { padding: 30px 20px; }
 }

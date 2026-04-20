@@ -1,5 +1,3 @@
-//Ici il cest mieu de rester en anglais car les etiquettes de i18n sont en anglais
-//comme le "resources", "translation" etc...
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
@@ -13,50 +11,75 @@ const resources = {
         rendezVous: 'Rendez-vous',
       },
       hero: {
+        title: "Le savoir-faire textile québécois depuis 1996.",
+        subtitle: "Une qualité inégalée et une ponctualité exemplaire. Nous transformons vos besoins en produits finis d'une précision chirurgicale.",
         button: 'CONTACTEZ-NOUS',
-        // J'ai vu que pour les slides faut cree une liste donc c'est sa que jai fait
-        slides: [
-          {
-            image: '/images/slide-1.jpg',
-            title: "L'excellence textile au service de votre industrie.",
-            description:
-              'Performance, protection et durabilite. Depuis 1996, nous concevons des solutions textiles sur mesure pour repondre aux exigences les plus strictes.',
-          },
-          {
-            image: '/images/slide-2.jpg',
-            title: 'Le savoir-faire textile quebecois depuis 1996.',
-            description:
-              "Une qualite inegalee et une ponctualite exemplaire. Nous transformons vos besoins en produits finis d'une precision chirurgicale.",
-          },
-          {
-            image: '/images/slide-3.jpg',
-            title: 'Votre partenaire de confiance en solutions textiles.',
-            description:
-              "Allier tradition et innovation pour des produits qui durent. Authentic Performance Productions : l'engagement de la qualite a chaque point de couture.",
-          },
-        ],
+      },
+      expertise: {
+        title: "NOTRE SAVOIR-FAIRE",
+        coutureTitle: "Couture de Précision",
+        coutureDesc: "Expertise en production sur mesure et de petite série. Un soin minutieux est apporté à chaque point de couture pour garantir la durabilité.",
+        presseTitle: "Presse et Finition",
+        presseDesc: "Un repassage industriel et professionnel pour une finition impeccable. Chaque vêtement est traité pour retrouver sa tenue parfaite.",
+        emballageTitle: "Emballage et Logistique",
+        emballageDesc: "Des solutions d'emballage élégantes et une préparation rigoureuse pour l'expédition. Vos produits sont prêts à livrés à vos clients.",
       },
       homeAbout: {
-        title: "30 Ans d'Excellence et de Maitrise Textile au Quebec",
-        text1:
-          "Depuis trois decennies, Authentic Performance Productions transforme le textile avec une precision inegalee. Notre force reside dans l'alliance entre un savoir-faire artisanal rigoureux et une capacite de production moderne.",
-        text2:
-          "Nous batissons notre reputation sur la ponctualite absolue, la finesse technique et une integrite sans faille dans chaque point de couture. Votre succes est notre priorite; nous accompagnons chaque client avec devouement pour offrir le meilleur resultat possible.",
-        button: 'CONTACTEZ-NOUS',
+        title: "30 Ans d'Excellence et de Maîtrise Textile au Québec",
+        text1: "Depuis trois décennies, Authentic Performance Production transforme le textile avec une précision inégalée. Notre force réside dans l'alliance entre un savoir-faire artisanal rigoureux et une capacité de production moderne.",
+        text2: "Nous bâtissons notre réputation sur la ponctualité absolue, la finesse technique et une intégrité sans faille dans chaque point de couture. Votre succès est notre priorité ; nous accompagnons chaque client avec dévouement.",
+        button: 'PRENDRE UN RENDEZ-VOUS',
       },
+      // --- NOUVELLES TRADUCTIONS PRODUITS (FR) ---
       products: {
-        title: 'Nos Produits',
-        subtitle: 'Decouvrez notre gamme de produits textiles de haute qualite.',
-        backButton: 'Retour aux produits',
-        description: 'Description',
-        features: 'Caracteristiques',
-        addToCart: 'Ajouter au panier',
+        mainTitle: "Nos Capacités de Production",
+        mainSubtitle: "Découvrez notre gamme d'expertise textile. Nous fabriquons vos produits en petite et grande série avec une précision chirurgicale.",
+        catClothing: "Vêtements & Mode",
+        catLinens: "Literie & Maison",
+        catWorkwear: "Uniformes & Vêtement de travail",
+        ctaText: "Vous avez un projet de production ? Veuillez nous contacter ou prendre un rendez-vous pour en discuter avec nos experts.",
+        btnContact: "NOUS CONTACTER",
+        btnMeeting: "PRENDRE RENDEZ-VOUS"
+      },
+      // --- NOUVELLES TRADUCTIONS ITEMS (FR) ---
+      items: {
+        tshirt: "T-shirt",
+        short: "Short",
+        skirt: "Jupe",
+        dress: "Robe",
+        pants: "Pantalon",
+        longSleeve: "Chandail manches longues",
+        hoodie: "Coton ouaté (Hoodie)",
+        camisole: "Camisole",
+        mattressCover: "Couvre-matelas",
+        bedSheet: "Drap de lit",
+        towel: "Serviette",
+        apronKitchen: "Tablier de cuisine",
+        apronMedical: "Tablier médical (Médecin / Infirmier)"
+      },
+      services: {
+        custom: "Couture sur mesure",
+        alterations: "Retouches",
+        consultation: "Consultation Design"
+      },
+      meeting: {
+        title: 'Prendre un rendez-vous',
+        subtitle: 'Vous avez un projet de production sérieux ? Planifiez une rencontre à notre atelier pour discuter avec nos experts. Nos consultations se font uniquement les vendredis entre 12h00 et 17h00.',
+        dateLabel: 'Date sélectionnée :',
+        timeLabel: 'Heure du rendez-vous',
+        fullDay: 'Désolé, cette journée est complète !',
+        name: 'Nom complet',
+        email: 'Email',
+        service: 'Type de service',
+        confirm: 'Confirmer la réservation',
+        statusWait: 'Réservation en cours...',
+        statusSuccess: 'Félicitations ! Votre rendez-vous est confirmé.',
+        selectTime: 'Veuillez sélectionner une heure.'
       },
       contact: {
         title: 'Contactez-nous',
-        subtitle: 'Entrez en contact avec notre equipe.',
-        helpText:
-          'Pour toute question précise, n’hésitez pas à nous contacter. Notre équipe est à votre entière disposition pour vous répondre.',
+        subtitle: "Vous avez des questions générales ou besoin de plus d'informations ? Écrivez-nous et notre équipe vous répondra rapidement.",
+        helpText: 'Pour toute question précise, n’hésitez pas à nous contacter.',
         name: 'Nom complet',
         email: 'Email',
         subject: 'Sujet',
@@ -64,34 +87,29 @@ const resources = {
         send: 'Envoyer le message',
         infoTitle: "Informations de l'entreprise",
         address: 'Adresse',
-        phone: 'Telephone',
+        phone: 'Téléphone',
         hours: "Heures d'ouverture",
         hoursValue: 'Lundi - Vendredi: 7h00 - 16h00',
         meetingCTA: 'Ou',
         meetingLink: 'prenez un rendez-vous avec nous',
       },
-      meeting: {
-        title: 'Prenez un rendez-vous avec nous',
-        helpText:
-          'Planifiez une rencontre avec notre équipe pour discuter de vos besoins spécifiques et de la réalisation de vos travaux.',
-      },
       login: {
         title: 'Connexion',
-        subtitle: 'Connectez-vous a votre compte.',
+        subtitle: 'Accédez à votre espace client.',
         email: 'Email',
         password: 'Mot de passe',
         button: 'Se connecter',
         noAccount: "Vous n'avez pas de compte ?",
-        createAccount: 'Veuillez creer votre compte',
+        createAccount: 'Créer un compte'
       },
       signup: {
-        title: 'Inscription',
-        subtitle: 'Creez votre compte rapidement.',
+        title: 'Créer un compte',
+        subtitle: 'Rejoignez-nous pour gérer vos commandes.',
         fullName: 'Nom complet',
         email: 'Email',
         password: 'Mot de passe',
-        button: "S'inscrire",
-      },
+        button: "S'inscrire"
+      }
     },
   },
   en: {
@@ -103,49 +121,75 @@ const resources = {
         rendezVous: 'Appointment',
       },
       hero: {
+        title: "Quebec textile know-how since 1996.",
+        subtitle: "Unmatched quality and exemplary punctuality. We turn your needs into finished products with surgical precision.",
         button: 'CONTACT US',
-        slides: [
-          {
-            image: '/images/slide-1.jpg',
-            title: 'Textile excellence serving your industry.',
-            description:
-              'Performance, protection and durability. Since 1996, we have designed custom textile solutions to meet the most demanding standards.',
-          },
-          {
-            image: '/images/slide-2.jpg',
-            title: 'Quebec textile know-how since 1996.',
-            description:
-              'Unmatched quality and exemplary punctuality. We turn your needs into finished products with surgical precision.',
-          },
-          {
-            image: '/images/slide-3.jpg',
-            title: 'Your trusted partner in textile solutions.',
-            description:
-              'Combining tradition and innovation for products that last. Authentic Performance Productions: a commitment to quality in every stitch.',
-          },
-        ],
+      },
+      expertise: {
+        title: "OUR EXPERTISE",
+        coutureTitle: "Precision Sewing",
+        coutureDesc: "Expertise in custom and small series production. Meticulous care is given to every stitch to guarantee durability.",
+        presseTitle: "Pressing & Finishing",
+        presseDesc: "Professional industrial pressing for a flawless finish. Each garment is treated to regain its perfect shape.",
+        emballageTitle: "Packaging & Logistics",
+        emballageDesc: "Elegant packaging solutions and rigorous preparation for shipping. Your products are ready for your customers.",
       },
       homeAbout: {
-        title: '30 Years of Excellence and Textile Mastery in Quebec',
-        text1:
-          'For three decades, Authentic Performance Productions has been transforming textiles with unmatched precision. Our strength lies in the alliance between rigorous craftsmanship and modern production capacity.',
-        text2:
-          'We build our reputation on absolute punctuality, technical finesse, and flawless integrity in every stitch. Your success is our priority; we support every client with dedication to provide the best possible results.',
-        button: 'CONTACT US',
+        title: "30 Years of Excellence and Textile Mastery in Quebec",
+        text1: "For three decades, Authentic Performance Production has been transforming textiles with unmatched precision. Our strength lies in the alliance between rigorous craftsmanship and modern production capacity.",
+        text2: "We build our reputation on absolute punctuality, technical finesse, and flawless integrity in every stitch. Your success is our priority; we support every client with dedication.",
+        button: 'BOOK AN APPOINTMENT',
       },
+      // --- NOUVELLES TRADUCTIONS PRODUITS (EN) ---
       products: {
-        title: 'Our Products',
-        subtitle: 'Discover our range of high-quality textile products.',
-        backButton: 'Back to products',
-        description: 'Description',
-        features: 'Features',
-        addToCart: 'Add to cart',
+        mainTitle: "Our Production Capabilities",
+        mainSubtitle: "Discover our range of textile expertise. We manufacture your products in small and large series with surgical precision.",
+        catClothing: "Apparel & Fashion",
+        catLinens: "Linens & Home",
+        catWorkwear: "Uniforms & Workwear",
+        ctaText: "Do you have a production project? Please contact us or book an appointment to discuss it with our experts.",
+        btnContact: "CONTACT US",
+        btnMeeting: "BOOK AN APPOINTMENT"
+      },
+      // --- NOUVELLES TRADUCTIONS ITEMS (EN) ---
+      items: {
+        tshirt: "T-shirt",
+        short: "Shorts",
+        skirt: "Skirt",
+        dress: "Dress",
+        pants: "Pants",
+        longSleeve: "Long sleeve shirt",
+        hoodie: "Hoodie",
+        camisole: "Camisole",
+        mattressCover: "Mattress cover",
+        bedSheet: "Bed sheet",
+        towel: "Towel",
+        apronKitchen: "Kitchen apron",
+        apronMedical: "Medical apron (Doctor / Nurse)"
+      },
+      services: {
+        custom: "Custom Sewing",
+        alterations: "Alterations",
+        consultation: "Design Consultation"
+      },
+      meeting: {
+        title: 'Book an appointment',
+        subtitle: 'Ready to start a serious production project? Schedule a workshop meeting with our experts. Consultations are held on Fridays between 12:00 PM and 5:00 PM.',
+        dateLabel: 'Selected date:',
+        timeLabel: 'Appointment time',
+        fullDay: 'Sorry, this day is fully booked!',
+        name: 'Full Name',
+        email: 'Email',
+        service: 'Service Type',
+        confirm: 'Confirm Booking',
+        statusWait: 'Booking in progress...',
+        statusSuccess: 'Congratulations! Your appointment is confirmed.',
+        selectTime: 'Please select a time.'
       },
       contact: {
         title: 'Contact Us',
-        subtitle: 'Get in touch with our team.',
-        helpText:
-          'Schedule a meeting with our team to discuss your specific needs and project requirements.',
+        subtitle: "Have general questions or need more information? Write to us and our team will get back to you promptly.",
+        helpText: 'For any specific questions, please do not hesitate to contact us.',
         name: 'Full Name',
         email: 'Email',
         subject: 'Subject',
@@ -159,28 +203,23 @@ const resources = {
         meetingCTA: 'Or',
         meetingLink: 'book an appointment with us',
       },
-      meeting: {
-        title: 'Book an appointment with us',
-        helpText:
-          'Schedule a meeting with our team to discuss your specific needs and project requirements',
-      },
       login: {
         title: 'Login',
-        subtitle: 'Sign in to your account.',
+        subtitle: 'Access your customer account.',
         email: 'Email',
         password: 'Password',
-        button: 'Sign in',
+        button: 'Login',
         noAccount: "Don't have an account?",
-        createAccount: 'Create your account',
+        createAccount: 'Create an account'
       },
       signup: {
-        title: 'Sign Up',
-        subtitle: 'Create your account quickly.',
+        title: 'Create an Account',
+        subtitle: 'Join us to manage your orders.',
         fullName: 'Full Name',
         email: 'Email',
         password: 'Password',
-        button: 'Sign up',
-      },
+        button: 'Sign Up'
+      }
     },
   },
 };
@@ -189,9 +228,7 @@ i18n.use(initReactI18next).init({
   resources,
   lng: 'fr',
   fallbackLng: 'fr',
-  interpolation: {
-    escapeValue: false,
-  },
+  interpolation: { escapeValue: false },
 });
 
 export default i18n;

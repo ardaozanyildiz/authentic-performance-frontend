@@ -1,8 +1,165 @@
-.meeting-page {
-  background-color: var(--color-bg-main);
+/* --- Structure principale avec Arrière-plan --- */
+.booking-page {
+  width: 100%;
+  min-height: 100vh; 
+  
+  background-image: 
+    linear-gradient(
+      rgba(249, 248, 246, 0.85), 
+      rgba(249, 248, 246, 0.85)
+    ),
+    url('/images/rendezVousPage.png');
+
+  background-size: cover;       
+  background-position: center;   
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+
+  padding: 80px 20px; 
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-.meeting-calendar-section {
-  padding: 0px 40px 60px;
-  background-color: var(--color-bg-main);
+.booking-page h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 15px; /* Ajusté pour se coller au sous-titre */
+  position: relative; 
+}
+
+/* --- LE NOUVEAU STYLE DU SOUS-TITRE (Même que Contact) --- */
+.subtitle {
+  text-align: center;
+  color: #444; 
+  margin: 0 auto 50px auto;
+  font-size: 1.15rem;
+  position: relative; 
+  max-width: 800px; 
+  line-height: 1.5;
+}
+
+.booking-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- Effet "Carte" --- */
+.calendar-section, .booking-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+  flex: 1;
+  min-width: 320px;
+  box-sizing: border-box;
+}
+
+/* --- Stylisation experte du react-calendar --- */
+.react-calendar {
+  border: none !important;
+  width: 100% !important;
+  font-family: inherit !important;
+}
+
+.react-calendar__navigation button {
+  font-size: 1.2rem;
+  min-width: 44px;
+  background: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #F9F8F6 !important;
+}
+
+.react-calendar__month-view__days__day--disabled {
+  background-color: #f5f5f5 !important;
+  color: #ccc !important;
+}
+
+.react-calendar__tile--active {
+  background: #C9B59C !important;
+  color: white !important;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.react-calendar__tile:enabled:hover, .react-calendar__tile:enabled:focus {
+  background: #F9F8F6;
+  border-radius: 6px;
+}
+
+.selected-date-text {
+  text-align: center;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* --- Le Formulaire --- */
+.booking-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.booking-form input, .booking-form select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #FAFAFA;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.booking-form input:focus, .booking-form select:focus {
+  border-color: #C9B59C;
+  outline: none;
+  background-color: #fff;
+}
+
+/* --- Bouton d'action --- */
+.confirm-btn {
+  width: 100%;
+  background: #C9B59C;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  background: #b09c85;
+}
+
+.confirm-btn:disabled {
+  background: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .booking-page {
+    background-attachment: scroll; 
+  }
 }
