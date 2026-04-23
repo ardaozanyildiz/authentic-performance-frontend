@@ -1,118 +1,76 @@
-/* --- Global Footer --- */
 .site-footer {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   width: 100%;
 }
 
-/* --- Section Infolettre --- */
-.newsletter-section {
-  background-color: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.envelope-icon {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.newsletter-section h2 {
-  font-size: 1.8rem;
-  color: #222;
-  margin-bottom: 30px;
-}
-
-.newsletter-form {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  flex: 1;
-  min-width: 250px;
-}
-
-.input-group label {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.input-group input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  font-size: 1rem;
-}
-
-.newsletter-form button {
-  padding: 12px 30px;
-  background-color: #222;
-  color: #fff;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  height: 43px; /* Pour s'aligner avec le input */
-  transition: background-color 0.3s;
-}
-
-.newsletter-form button:hover {
-  background-color: #C9B59C;
-}
-
-/* --- Section Principale Sombre --- */
 .footer-main {
-  background-color: #2a2a2a; /* Gris très foncé comme George Courey */
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
   color: #ffffff;
-  padding: 80px 20px;
+  padding: 80px 20px 60px;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 50px;
 }
 
 .footer-col {
-  flex: 1;
-  min-width: 250px;
+  min-width: 0;
 }
 
-.brand-col .footer-logo-text {
-  color: #C9B59C; /* Ta couleur signature */
-  font-family: 'Playfair Display', serif; /* Ou une autre belle police serif */
-  font-size: 1.5rem;
-  line-height: 1.2;
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.footer-logo-main {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #C9B59C;
+  letter-spacing: 3px;
+}
+
+.footer-logo-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #888;
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  margin-top: 4px;
 }
 
-.brand-col p {
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   color: #bbb;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.links-col h4 {
-  font-size: 1rem;
-  letter-spacing: 1.5px;
+.contact-item svg {
+  color: #C9B59C;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.links-col h4,
+.social-col h4 {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
   margin-bottom: 25px;
   color: #fff;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .links-col ul {
@@ -122,57 +80,103 @@
 }
 
 .links-col li {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .links-col a {
   color: #bbb;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
 }
 
 .links-col a:hover {
   color: #C9B59C;
+  transform: translateX(5px);
 }
 
-/* --- Section Bas de page --- */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #bbb;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: #C9B59C;
+  color: #2a2a2a;
+  transform: translateY(-3px);
+}
+
+.made-with {
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 .footer-bottom {
-  background-color: #222222;
-  border-top: 1px solid #444;
-  padding: 20px;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  padding: 25px 20px;
   text-align: center;
 }
 
 .footer-bottom-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  color: #888;
+  color: #666;
   font-size: 0.85rem;
 }
 
-.social-links a, .legal-links a {
-  color: #888;
-  text-decoration: none;
-  margin-left: 20px;
-  transition: color 0.2s;
+.footer-bottom p {
+  margin: 0;
 }
 
-.social-links a:hover, .legal-links a:hover {
-  color: #fff;
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
 }
 
-@media (max-width: 768px) {
-  .footer-bottom-container {
-    flex-direction: column;
+@media (max-width: 600px) {
+  .footer-main {
+    padding: 60px 20px 40px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
     text-align: center;
   }
-  .social-links a, .legal-links a {
-    margin: 0 10px;
+
+  .footer-logo {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .links-col a:hover {
+    transform: none;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 }

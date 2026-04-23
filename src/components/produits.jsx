@@ -1,72 +1,102 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { Shirt, Bed, HardHat, Grid3X3, ArrowRight, Store } from './Icons';
+import Footer from './footer'; // Ajout du pied de page
+import products from '../data/products';
 import './produits.css';
 
 function Produits() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [activeFilter, setActiveFilter] = useState('all');
+  
+  const lang = i18n.resolvedLanguage && i18n.resolvedLanguage.startsWith('fr') ? 'fr' : 'en';
+
+  // 1. Remonter en haut de la page au chargement
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // 2. Simplification du filtrage
+  const filteredProducts = activeFilter === 'all' 
+    ? products 
+    : products.filter(p => p.category === activeFilter);
+
+  // 3. Simplification des fonctions d'icônes
+  const getCategoryIcon = (category) => {
+    if (category === 'clothing') return <Shirt size={16} />;
+    if (category === 'linens') return <Bed size={16} />;
+    if (category === 'workwear') return <HardHat size={16} />;
+    return null;
+  };
+
+  const getCategoryLabel = (category) => {
+    if (category === 'clothing') return t('products.clothing');
+    if (category === 'linens') return t('products.linens');
+    if (category === 'workwear') return t('products.workwear');
+    return category;
+  };
 
   return (
     <div className="products-page">
       
-      {/* --- En-tête de la page --- */}
       <header className="products-hero">
-        <h1>{t('products.mainTitle')}</h1>
+        <h1 className="animate-fade-in">{t('products.mainTitle')}</h1>
         <div className="section-divider"></div>
-        <p className="products-subtitle">{t('products.mainSubtitle')}</p>
+        <p className="products-subtitle animate-fade-in">{t('products.mainSubtitle')}</p>
       </header>
 
-      {/* --- Grille des catégories --- */}
-      <div className="catalog-container">
-        
-        {/* Catégorie 1 : Vêtements */}
-        <div className="catalog-card">
-          <div className="card-icon">👕</div>
-          <h2>{t('products.catClothing')}</h2>
-          <ul className="item-list">
-            <li>{t('items.tshirt')}</li>
-            <li>{t('items.short')}</li>
-            <li>{t('items.skirt')}</li>
-            <li>{t('items.dress')}</li>
-            <li>{t('items.pants')}</li>
-            <li>{t('items.longSleeve')}</li>
-            <li>{t('items.hoodie')}</li>
-            <li>{t('items.camisole')}</li>
-          </ul>
-        </div>
-
-        {/* Catégorie 2 : Literie */}
-        <div className="catalog-card">
-          <div className="card-icon">🛏️</div>
-          <h2>{t('products.catLinens')}</h2>
-          <ul className="item-list">
-            <li>{t('items.bedSheet')}</li>
-            <li>{t('items.mattressCover')}</li>
-            <li>{t('items.towel')}</li>
-          </ul>
-        </div>
-
-        {/* Catégorie 3 : Uniformes */}
-        <div className="catalog-card">
-          <div className="card-icon">🥼</div>
-          <h2>{t('products.catWorkwear')}</h2>
-          <ul className="item-list">
-            <li>{t('items.apronKitchen')}</li>
-            <li>{t('items.apronMedical')}</li>
-          </ul>
-        </div>
-
+      <div className="filter-container animate-fade-in-up">
+        <button className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`} onClick={() => setActiveFilter('all')}>
+          <Grid3X3 size={18} /> {t('products.allProducts')}
+        </button>
+        <button className={`filter-btn ${activeFilter === 'clothing' ? 'active' : ''}`} onClick={() => setActiveFilter('clothing')}>
+          <Shirt size={18} /> {t('products.clothing')}
+        </button>
+        <button className={`filter-btn ${activeFilter === 'linens' ? 'active' : ''}`} onClick={() => setActiveFilter('linens')}>
+          <Bed size={18} /> {t('products.linens')}
+        </button>
+        <button className={`filter-btn ${activeFilter === 'workwear' ? 'active' : ''}`} onClick={() => setActiveFilter('workwear')}>
+          <HardHat size={18} /> {t('products.workwear')}
+        </button>
       </div>
 
-      {/* --- Appel à l'action (Le CTA que tu as demandé) --- */}
-      <div className="products-cta-section">
+      <div className="products-grid">
+        {filteredProducts.map((product, index) => (
+          <Link to={`/products/${product.id}`} key={product.id} className={`product-card animate-fade-in-up stagger-${(index % 6) + 1}`}>
+            <div className="product-image-container">
+              <img src={product.image} alt={product[lang].name} className="product-image" />
+              <div className="product-overlay">
+                <span className="view-details">
+                  {t('products.viewDetails')} <ArrowRight size={16} />
+                </span>
+              </div>
+            </div>
+            <div className="product-info">
+              <span className="product-category">
+                {getCategoryIcon(product.category)} {getCategoryLabel(product.category)}
+              </span>
+              <h3 className="product-name">{product[lang].name}</h3>
+              {/* Le prix a été supprimé ici ! */}
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      <div className="products-cta-section animate-fade-in-up">
+        <Store size={48} strokeWidth={1.5} className="cta-icon" />
         <h3>{t('products.ctaText')}</h3>
         <div className="cta-buttons">
-          <Link to="/contact" className="cta-btn primary">{t('products.btnContact')}</Link>
-          <Link to="/rendez-vous" className="cta-btn secondary">{t('products.btnMeeting')}</Link>
+          <Link to="/contact" className="cta-btn primary">
+            {t('products.btnContact')} <ArrowRight size={18} />
+          </Link>
+          <Link to="/rendez-vous" className="cta-btn secondary">
+            {t('products.btnMeeting')} <ArrowRight size={18} />
+          </Link>
         </div>
       </div>
 
+   
     </div>
   );
 }

@@ -1,53 +1,129 @@
-//je vai changer cette page o complet
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ArrowLeft, Check, Store, Calendar, Phone, MapPin, Shirt, Bed, HardHat } from './Icons';
+import Footer from './footer'; // Ajout du pied de page
 import products from '../data/products';
-import './produits.css';
+import './produitDetail.css';
 
 function ProduitDetail() {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
-  const lang = i18n.resolvedLanguage && i18n.resolvedLanguage.startsWith('fr') ? 'fr' : 'en';
+  
+  // Toujours ouvrir en haut
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]); // On met 'id' ici pour que ça remonte si on navigue de produit en produit
 
-  // Trouver le produit par son id
+  const lang = i18n.resolvedLanguage && i18n.resolvedLanguage.startsWith('fr') ? 'fr' : 'en';
   const product = products.find((p) => p.id === Number(id));
 
-  // Si le produit n'existe pas
   if (!product) {
     return (
-      <div className="detail-page">
-        <h2>Product not found</h2>
-        <Link to="/products">{t('products.backButton')}</Link>
+      <div className="detail-page not-found">
+        <div className="not-found-content">
+          <h2>Product not found</h2>
+          <Link to="/products" className="back-btn">
+            <ArrowLeft size={18} />
+            {t('products.backButton')}
+          </Link>
+        </div>
       </div>
     );
   }
 
   const info = product[lang];
 
+  const getCategoryIcon = (category) => {
+    if (category === 'clothing') return <Shirt size={18} />;
+    if (category === 'linens') return <Bed size={18} />;
+    if (category === 'workwear') return <HardHat size={18} />;
+    return null;
+  };
+
+  const getCategoryLabel = (category) => {
+    if (category === 'clothing') return t('products.clothing');
+    if (category === 'linens') return t('products.linens');
+    if (category === 'workwear') return t('products.workwear');
+    return category;
+  };
+
   return (
     <div className="detail-page">
-      <Link to="/products" className="back-link">{t('products.backButton')}</Link>
+      <div className="detail-breadcrumb">
+        <Link to="/products" className="back-btn animate-fade-in">
+          <ArrowLeft size={18} />
+          {t('products.backButton')}
+        </Link>
+      </div>
 
       <div className="detail-container">
-        <img src={product.image} alt={info.name} className="detail-image" />
+        <div className="detail-image-section animate-slide-in-left">
+          <div className="image-wrapper">
+            <img src={product.image} alt={info.name} className="detail-image" />
+          </div>
+        </div>
 
-        <div className="detail-info">
-          <h1>{info.name}</h1>
-          <p className="detail-price">${product.price.toFixed(2)}</p>
+        <div className="detail-info-section animate-slide-in-right">
+          <span className="detail-category">
+            {getCategoryIcon(product.category)}
+            {getCategoryLabel(product.category)}
+          </span>
+          
+          <h1 className="detail-title">{info.name}</h1>
+          
+          {/* L'AFFICHAGE DU PRIX A ÉTÉ RETIRÉ ICI */}
 
-          <h3>{t('products.description')}</h3>
-          <p>{info.description}</p>
+          <div className="detail-description">
+            <h3>{t('products.description')}</h3>
+            <p>{info.description}</p>
+          </div>
 
-          <h3>{t('products.features')}</h3>
-          <ul>
-            {info.features.map((feature, i) => (
-              <li key={i}>{feature}</li>
-            ))}
-          </ul>
+          <div className="detail-features">
+            <h3>{t('products.features')}</h3>
+            <ul>
+              {info.features.map((feature, i) => (
+                <li key={i}>
+                  <Check size={18} className="check-icon" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <button className="add-to-cart-btn">{t('products.addToCart')}</button>
+          <div className="in-store-notice">
+            <Store size={24} />
+            <div>
+              <strong>{t('products.inStoreOnly')}</strong>
+              <p>{t('products.visitStoreText')}</p>
+            </div>
+          </div>
+
+          <div className="detail-actions">
+            <Link to="/rendez-vous" className="action-btn primary">
+              <Calendar size={18} />
+              {t('products.btnMeeting')}
+            </Link>
+            <Link to="/contact" className="action-btn secondary">
+              <Phone size={18} />
+              {t('products.btnContact')}
+            </Link>
+          </div>
         </div>
       </div>
+
+      <div className="visit-section animate-fade-in-up">
+        <div className="visit-content">
+          <MapPin size={32} className="visit-icon" />
+          <div>
+            <h3>{t('products.visitStore')}</h3>
+            <p>9600 Rue Meilleur, Suite #820-4, Montreal, QC H2N 2E3</p>
+            <p className="visit-hours">{t('contact.hoursValue')}</p>
+          </div>
+        </div>
+      </div>
+      
+  
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import { useTranslation } from 'react-i18next';
+import { Clock, User, Mail, Briefcase, CalendarDays, CheckCircle, MessageSquare, Palette, FileText } from './Icons';
 import 'react-calendar/dist/Calendar.css';
 import './rendezVous.css'; 
 
@@ -23,7 +24,7 @@ function RendezVous() {
     clientEmail: '',
     serviceType: 'Couture sur mesure'
   });
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -59,11 +60,11 @@ function RendezVous() {
   const handleBooking = async (e) => {
     e.preventDefault();
     if (!selectedTime) {
-      setStatus(t('meeting.selectTime'));
+      setStatus({ type: 'error', message: t('meeting.selectTime') });
       return;
     }
 
-    setStatus(t('meeting.statusWait'));
+    setStatus({ type: 'loading', message: t('meeting.statusWait') });
 
     const year = selectedDate.getFullYear();
     const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
@@ -81,75 +82,131 @@ function RendezVous() {
       });
 
       if (response.ok) {
-        setStatus(t('meeting.statusSuccess'));
+        setStatus({ type: 'success', message: t('meeting.statusSuccess') });
         setFormData({ clientName: '', clientEmail: '', serviceType: 'Couture sur mesure' });
         const newAvailableTimes = availableTimes.filter(t => t !== selectedTime);
         setAvailableTimes(newAvailableTimes);
         setSelectedTime(newAvailableTimes.length > 0 ? newAvailableTimes[0] : '');
       } else {
-        setStatus('Erreur lors de la réservation.');
+        setStatus({ type: 'error', message: 'Erreur lors de la réservation.' });
       }
     } catch  {
-      setStatus('Erreur de connexion au serveur.');
+      setStatus({ type: 'error', message: 'Erreur de connexion au serveur.' });
     }
   };
 
   return (
     <div className="booking-page">
-      <h1>{t('meeting.title')}</h1>
-      {/* Le sous-titre qui va maintenant chercher le nouveau texte très pro */}
-      <p className="subtitle">{t('meeting.subtitle')}</p>
+      <div className="booking-header animate-fade-in">
+        <h1>{t('meeting.title')}</h1>
+        <div className="section-divider"></div>
+        <p className="subtitle">{t('meeting.subtitle')}</p>
+      </div>
 
-      <div className="booking-container">
-        <div className="calendar-section">
-          <Calendar 
-            onChange={setSelectedDate} 
-            value={selectedDate}
-            minDate={new Date()} 
-            tileDisabled={disableNonFridays}
-            locale={currentLocale} 
-          />
-          <p className="selected-date-text" style={{ marginTop: '15px' }}>
-            {t('meeting.dateLabel')} <strong>{selectedDate.toLocaleDateString(currentLocale)}</strong>
-          </p>
+      <div className="booking-content">
+        <div className="booking-container">
+          <div className="calendar-section animate-slide-in-left">
+            <h3><CalendarDays size={22} /> {t('meeting.dateLabel').replace(':', '')}</h3>
+            <Calendar 
+              onChange={setSelectedDate} 
+              value={selectedDate}
+              minDate={new Date()} 
+              tileDisabled={disableNonFridays}
+              locale={currentLocale} 
+            />
+            <p className="selected-date-text">
+              <strong>{selectedDate.toLocaleDateString(currentLocale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</strong>
+            </p>
+          </div>
+
+          <form className="booking-form animate-slide-in-right" onSubmit={handleBooking}>
+            <div className="form-group">
+              <label><Clock size={18} /> {t('meeting.timeLabel')}</label>
+              {availableTimes.length > 0 ? (
+                <div className="time-slots">
+                  {availableTimes.map(time => (
+                    <button
+                      type="button"
+                      key={time}
+                      className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
+                      onClick={() => setSelectedTime(time)}
+                    >
+                      {time}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <p className="full-day-message">{t('meeting.fullDay')}</p>
+              )}
+            </div>
+
+            <div className="form-group">
+              <label><User size={18} /> {t('meeting.name')}</label>
+              <input 
+                type="text" 
+                name="clientName" 
+                value={formData.clientName} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+
+            <div className="form-group">
+              <label><Mail size={18} /> {t('meeting.email')}</label>
+              <input 
+                type="email" 
+                name="clientEmail" 
+                value={formData.clientEmail} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+
+            <div className="form-group">
+              <label><Briefcase size={18} /> {t('meeting.service')}</label>
+              <select name="serviceType" value={formData.serviceType} onChange={handleChange}>
+                <option value="Couture sur mesure">{t('services.custom')}</option>
+                <option value="Retouches">{t('services.alterations')}</option>
+                <option value="Consultation Design">{t('services.consultation')}</option>
+              </select>
+            </div>
+
+            <button type="submit" className="confirm-btn" disabled={availableTimes.length === 0}>
+              <CheckCircle size={18} />
+              {t('meeting.confirm')}
+            </button>
+
+            {status.message && (
+              <div className={`status-message ${status.type}`}>
+                {status.message}
+              </div>
+            )}
+          </form>
         </div>
 
-        <form className="booking-form" onSubmit={handleBooking}>
-          <label>{t('meeting.timeLabel')}</label>
-          {availableTimes.length > 0 ? (
-            <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
-              {availableTimes.map(time => <option key={time} value={time}>{time}</option>)}
-            </select>
-          ) : (
-            <p style={{ color: '#d32f2f', fontWeight: 'bold' }}>{t('meeting.fullDay')}</p>
-          )}
-
-          <label>{t('meeting.name')}</label>
-          <input type="text" name="clientName" value={formData.clientName} onChange={handleChange} required />
-
-          <label>{t('meeting.email')}</label>
-          <input type="email" name="clientEmail" value={formData.clientEmail} onChange={handleChange} required />
-
-          <label>{t('meeting.service')}</label>
-          <select name="serviceType" value={formData.serviceType} onChange={handleChange}>
-            <option value="Couture sur mesure">{t('services.custom')}</option>
-            <option value="Retouches">{t('services.alterations')}</option>
-            <option value="Consultation Design">{t('services.consultation')}</option>
-          </select>
-
-          <button type="submit" className="confirm-btn" style={{ marginTop: '15px' }} disabled={availableTimes.length === 0}>
-            {t('meeting.confirm')}
-          </button>
-
-          {status && (
-            <p className="status-msg" style={{ 
-              marginTop: '15px', fontWeight: 'bold', textAlign: 'center',
-              color: status.includes('Félicitations') || status.includes('Congratulations') ? '#000000' : '#d32f2f' 
-            }}>
-              {status}
-            </p>
-          )}
-        </form>
+        <div className="why-book-section animate-fade-in-up">
+          <h3>{t('meeting.whyBook')}</h3>
+          <div className="reasons-grid">
+            <div className="reason-item">
+              <div className="reason-icon">
+                <MessageSquare size={24} />
+              </div>
+              <p>{t('meeting.reason1')}</p>
+            </div>
+            <div className="reason-item">
+              <div className="reason-icon">
+                <Palette size={24} />
+              </div>
+              <p>{t('meeting.reason2')}</p>
+            </div>
+            <div className="reason-item">
+              <div className="reason-icon">
+                <FileText size={24} />
+              </div>
+              <p>{t('meeting.reason3')}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
