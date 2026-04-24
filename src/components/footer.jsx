@@ -52,8 +52,8 @@ function Footer() {
             <h4>{t('footer.ourServices')}</h4>
             <ul>
               <li><Link to="/products">{t('services.custom')}</Link></li>
-              <li><Link to="/products">{t('services.alterations')}</Link></li>
-              <li><Link to="/products">{t('services.consultation')}</Link></li>
+              <li><Link to="/products">{t('services.presse')}</Link></li>
+              <li><Link to="/products">{t('services.emballage')}</Link></li>
             </ul>
           </div>
 

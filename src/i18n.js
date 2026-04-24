@@ -11,7 +11,7 @@ const resources = {
         rendezVous: 'Rendez-vous',
       },
       hero: {
-        title: "Le savoir-faire textile québécois depuis 1996.",
+        title: "Le savoir-faire textile depuis 1996.",
         subtitle: "Une qualité inégalée et une ponctualité exemplaire. Nous transformons vos besoins en produits finis d'une précision chirurgicale.",
         button: 'CONTACTEZ-NOUS',
       },
@@ -27,13 +27,12 @@ const resources = {
       homeAbout: {
         title: "30 Ans d'Excellence et de Maîtrise Textile au Québec",
         text1: "Depuis trois décennies, Authentic Performance Production transforme le textile avec une précision inégalée. Notre force réside dans l'alliance entre un savoir-faire artisanal rigoureux et une capacité de production moderne.",
-        text2: "Nous bâtissons notre réputation sur la ponctualité absolue, la finesse technique et une intégrité sans faille dans chaque point de couture. Votre succès est notre priorité.",
+        text2: "Nous bâtissons notre reputation sur la ponctualité absolue, la finesse technique et une intégrité sans faille dans chaque point de couture. Votre succès est notre priorité.",
         button: 'PRENDRE UN RENDEZ-VOUS',
         feature1: "Production locale au Québec",
         feature2: "Qualité certifiée ISO",
         feature3: "Livraison dans les délais garantie",
       },
-      // --- NOUVEAU BLOC POUR LES PARTENAIRES ---
       partners: {
         title: "Ils nous font confiance",
         subtitle: "Fièrement associés aux entreprises d'ici",
@@ -63,7 +62,7 @@ const resources = {
         features: "Caractéristiques",
         price: "Prix",
         visitStore: "Visiter notre atelier",
-        visitStoreText: "Pour commander ce produit, veuillez prendre rendez-vous ou nous contacter directement.",
+        visitStoreText: "Vous avez un projet nécessitant ce type de produit ? Contactez-nous ou prenez rendez-vous pour discuter de votre production.",
         inStoreOnly: "Commande en atelier uniquement",
         category: "Catégorie",
       },
@@ -84,8 +83,11 @@ const resources = {
       },
       services: {
         custom: "Couture sur mesure",
-        alterations: "Retouches",
-        consultation: "Consultation Design"
+        presse: "La presse (pressing)",
+        emballage: "Emballage",
+        tous: "Tous (couture, presse, emballage)",
+        autre: "Autre"
+        
       },
       meeting: {
         title: 'Prendre un rendez-vous',
@@ -160,7 +162,7 @@ const resources = {
         rendezVous: 'Appointment',
       },
       hero: {
-        title: "Quebec textile expertise since 1996.",
+        title: "Textile expertise since 1996.",
         subtitle: "Unmatched quality and exemplary punctuality. We turn your needs into finished products with surgical precision.",
         button: 'CONTACT US',
       },
@@ -182,7 +184,6 @@ const resources = {
         feature2: "ISO certified quality",
         feature3: "Guaranteed on-time delivery",
       },
-      // --- NOUVEAU BLOC POUR LES PARTENAIRES ---
       partners: {
         title: "They trust us",
         subtitle: "Proudly partnered with local businesses",
@@ -212,7 +213,7 @@ const resources = {
         features: "Features",
         price: "Price",
         visitStore: "Visit our workshop",
-        visitStoreText: "To order this product, please book an appointment or contact us directly.",
+        visitStoreText: "Do you have a project requiring this type of product? Contact us or book an appointment to discuss your production.",
         inStoreOnly: "Workshop order only",
         category: "Category",
       },
@@ -233,8 +234,10 @@ const resources = {
       },
       services: {
         custom: "Custom Sewing",
-        alterations: "Alterations",
-        consultation: "Design Consultation"
+        presse: "Pressing",
+        emballage: "Packaging",
+        tous: "All (sewing, pressing, packaging)",
+        autre: "Other"
       },
       meeting: {
         title: 'Book an Appointment',

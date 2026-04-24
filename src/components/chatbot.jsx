@@ -34,7 +34,7 @@ function Chatbot() {
         addBotMessage(botResponse, '/rendez-vous', 'Évaluer mon projet');
       }
       // 2. Logique pour les prototypes / échantillons
-      else if (text.includes('prototype') || text.includes('échantillon') || text.includes('exemple') || text.includes('tester')) {
+      else if (text.includes('prototype') || text.includes('échantillon') || text.includes('echantillon') || text.includes('exemple') || text.includes('tester')) {
         botResponse = "Oui, tout à fait ! Nous réalisons toujours des échantillons et des prototypes avant de lancer la production finale pour nous assurer que tout correspond à vos attentes.";
         addBotMessage(botResponse, '/contact', 'Demander un prototype');
       }
@@ -44,12 +44,12 @@ function Chatbot() {
         addBotMessage(botResponse, '/contact', 'Vérifier nos disponibilités');
       }
       // 4. Logique pour les prix / soumissions
-      else if (text.includes('prix') || text.includes('coût') || text.includes('soumission') || text.includes('tarif')) {
+      else if (text.includes('prix') || text.includes('coût') || text.includes('coût') || text.includes('soumission') || text.includes('tarif')) {
         botResponse = "Nos prix d'assemblage sont calculés sur mesure selon vos spécifications, le temps de coupe et de couture. Contactez-nous pour une soumission exacte !";
         addBotMessage(botResponse, '/contact', 'Demander une soumission');
       }
       // 5. Logique de Contact direct
-      else if (text.includes('contact') || text.includes('email') || text.includes('appeler') || text.includes('téléphone')) {
+      else if (text.includes('contact') || text.includes('email') || text.includes('appeler') || text.includes('téléphone') || text.includes('telephone')) {
         botResponse = "Pour toute question spécifique, notre équipe est là pour vous ! Voulez-vous aller sur notre page de contact ?";
         addBotMessage(botResponse, '/contact', 'Aller vers Contact');
       } 

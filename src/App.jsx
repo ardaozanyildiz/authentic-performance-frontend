@@ -9,6 +9,7 @@ import Login from './components/login';
 import Signup from './components/signup';
 import RendezVous from './components/rendezVous';
 import Chatbot from './components/chatbot'; // <-- 1. ON IMPORTE LE CHATBOT ICI
+import AnnulerRendezVous from './components/annulerRendezVous';
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/rendez-vous" element={<RendezVous />} />
+          <Route path="/annuler-rdv/:id" element={<AnnulerRendezVous />} />
         </Routes>
       </main>
       <Footer />

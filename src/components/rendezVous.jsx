@@ -22,7 +22,7 @@ function RendezVous() {
   const [formData, setFormData] = useState({
     clientName: '',
     clientEmail: '',
-    serviceType: 'Couture sur mesure'
+    serviceType: 'Couture sur mesure' // Correspond maintenant parfaitement au menu déroulant
   });
   const [status, setStatus] = useState({ type: '', message: '' });
 
@@ -42,7 +42,8 @@ function RendezVous() {
       const dateString = `${year}-${month}-${day}`;
 
       try {
-        const response = await fetch(`http://localhost:8080/api/appointments/booked-times?date=${dateString}`);
+        // PREMIÈRE MODIFICATION ICI (Pour récupérer les heures)
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments/booked-times?date=${dateString}`);
         if (response.ok) {
           const bookedTimes = await response.json();
           const freeTimes = ALL_TIMES.filter(time => !bookedTimes.includes(time));
@@ -72,7 +73,8 @@ function RendezVous() {
     const formattedDate = `${year}-${month}-${day}T${selectedTime}:00`;
 
     try {
-      const response = await fetch('http://localhost:8080/api/appointments/book', {
+      // DEUXIÈME MODIFICATION ICI (Pour envoyer la réservation)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments/book`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -163,13 +165,20 @@ function RendezVous() {
             </div>
 
             <div className="form-group">
-              <label><Briefcase size={18} /> {t('meeting.service')}</label>
-              <select name="serviceType" value={formData.serviceType} onChange={handleChange}>
-                <option value="Couture sur mesure">{t('services.custom')}</option>
-                <option value="Retouches">{t('services.alterations')}</option>
-                <option value="Consultation Design">{t('services.consultation')}</option>
-              </select>
-            </div>
+            <label><span className="icon-wrapper"><i className="fas fa-briefcase"></i></span> {t('meeting.service')}</label>
+            <select 
+              name="serviceType" /* CORRECTION ICI */
+              value={formData.serviceType} /* CORRECTION ICI */
+              onChange={handleChange} 
+              required
+            >
+              <option value="Couture sur mesure">{t('services.custom')}</option>
+              <option value="La presse (pressing)">{t('services.presse')}</option>
+              <option value="Emballage">{t('services.emballage')}</option>
+              <option value="Tous (couture, presse, emballage)">{t('services.tous')}</option>
+              <option value="Autre">{t('services.autre')}</option>
+            </select>
+          </div>
 
             <button type="submit" className="confirm-btn" disabled={availableTimes.length === 0}>
               <CheckCircle size={18} />
