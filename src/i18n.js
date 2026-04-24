@@ -63,7 +63,7 @@ const resources = {
         price: "Prix",
         visitStore: "Visiter notre atelier",
         visitStoreText: "Vous avez un projet nécessitant ce type de produit ? Contactez-nous ou prenez rendez-vous pour discuter de votre production.",
-        inStoreOnly: "Commande en atelier uniquement",
+        inStoreOnly: "Exemple de production",
         category: "Catégorie",
       },
       items: {
@@ -87,7 +87,6 @@ const resources = {
         emballage: "Emballage",
         tous: "Tous (couture, presse, emballage)",
         autre: "Autre"
-        
       },
       meeting: {
         title: 'Prendre un rendez-vous',
@@ -106,6 +105,19 @@ const resources = {
         reason1: 'Consultation personnalisée avec nos experts',
         reason2: 'Découvrez nos échantillons de tissus',
         reason3: 'Obtenez un devis sur mesure',
+      },
+      cancelMeeting: {
+        title: "Annuler votre rendez-vous ?",
+        warning: "Êtes-vous certain de vouloir annuler cette rencontre ? Cette action libérera la place et est irréversible.",
+        btnYes: "Oui, annuler le rendez-vous",
+        btnNo: "Non, retourner à l'accueil",
+        loading: "Annulation en cours...",
+        successTitle: "Rendez-vous annulé",
+        successText: "Votre rendez-vous a bien été annulé. L'atelier a été prévenu et la plage horaire a été libérée.",
+        btnHome: "Retour à l'accueil",
+        errorTitle: "Erreur",
+        errorText: "Impossible d'annuler le rendez-vous. Il a peut-être déjà été annulé ou ce lien est expiré.",
+        btnContact: "Nous contacter"
       },
       contact: {
         title: 'Contactez-nous',
@@ -214,7 +226,7 @@ const resources = {
         price: "Price",
         visitStore: "Visit our workshop",
         visitStoreText: "Do you have a project requiring this type of product? Contact us or book an appointment to discuss your production.",
-        inStoreOnly: "Workshop order only",
+        inStoreOnly: "Production Example",
         category: "Category",
       },
       items: {
@@ -256,6 +268,19 @@ const resources = {
         reason1: 'Personalized consultation with our experts',
         reason2: 'Discover our fabric samples',
         reason3: 'Get a custom quote',
+      },
+      cancelMeeting: {
+        title: "Cancel your appointment?",
+        warning: "Are you sure you want to cancel this meeting? This action will free up the time slot and is irreversible.",
+        btnYes: "Yes, cancel appointment",
+        btnNo: "No, return to home",
+        loading: "Canceling...",
+        successTitle: "Appointment canceled",
+        successText: "Your appointment has been successfully canceled. The workshop has been notified and the time slot is now available.",
+        btnHome: "Back to home",
+        errorTitle: "Error",
+        errorText: "Unable to cancel the appointment. It may have already been canceled or this link has expired.",
+        btnContact: "Contact us"
       },
       contact: {
         title: 'Contact Us',

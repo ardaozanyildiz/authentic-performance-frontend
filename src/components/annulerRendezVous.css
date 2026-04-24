@@ -1,0 +1,83 @@
+.cancel-page-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.cancel-card {
+  text-align: center;
+  padding: 50px;
+  background-color: #F9F8F6;
+  border-radius: 15px;
+  max-width: 500px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.cancel-title {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.cancel-title.attente { color: #4a3728; }
+.cancel-title.chargement { color: #C9B59C; }
+.cancel-title.succes { color: #4CAF50; }
+.cancel-title.erreur { color: #cc0000; }
+
+.cancel-text {
+  margin-bottom: 30px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.cancel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Bouton rouge d'annulation */
+.cancel-btn-danger {
+  background-color: #cc0000;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn-danger:hover {
+  background-color: #a30000;
+}
+
+/* Lien texte simple (Non, retourner à l'accueil) */
+.cancel-link-text {
+  color: #4a3728;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.cancel-link-text:hover {
+  color: #C9B59C;
+}
+
+/* Bouton brun (Retour à l'accueil / Nous contacter) */
+.cancel-btn-primary {
+  background-color: #4a3728;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn-primary:hover {
+  background-color: #36281c;
+}
