@@ -1,12 +1,22 @@
 .booking-page {
   width: 100%;
   min-height: 100vh;
-  background-color: #F9F8F6;
+  
+  /* L'empilement : Le dégradé semi-transparent (88% d'opacité) + l'image */
+  background: linear-gradient(
+      rgba(249, 248, 246, 0.86), 
+      rgba(249, 248, 246, 0.88)
+    ), 
+    url('/images/rendezVousPage.png');
+    
+  background-size: cover;          /* L'image s'étire pour couvrir tout l'écran */
+  background-position: center;     /* L'image reste bien centrée */
+  background-attachment: fixed;    /* Effet parallaxe : l'image reste fixe quand on descend la page */
+
   padding: 100px 20px 80px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   box-sizing: border-box;
 }
-
 .booking-header {
   text-align: center;
   margin-bottom: 60px;

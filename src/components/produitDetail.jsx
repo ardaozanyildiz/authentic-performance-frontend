@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Check, Store, Calendar, Phone, MapPin, Shirt, Bed, HardHat } from './Icons';
-import Footer from './footer'; // Ajout du pied de page
+import Footer from './footer'; 
 import products from '../data/products';
 import './produitDetail.css';
 
@@ -10,10 +10,9 @@ function ProduitDetail() {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   
-  // Toujours ouvrir en haut
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]); // On met 'id' ici pour que ça remonte si on navigue de produit en produit
+  }, [id]); 
 
   const lang = i18n.resolvedLanguage && i18n.resolvedLanguage.startsWith('fr') ? 'fr' : 'en';
   const product = products.find((p) => p.id === Number(id));

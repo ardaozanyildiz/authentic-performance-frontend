@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'; // <-- Import de la traduction
+import { useTranslation } from 'react-i18next'; 
 import './AnnulerRendezVous.css';
 
 function AnnulerRendezVous() {
   const { id } = useParams();
-  const { t } = useTranslation(); // <-- Initialisation de la traduction
+  const { t } = useTranslation(); 
   const [statut, setStatut] = useState('attente'); 
 
   const confirmerAnnulation = async () => {

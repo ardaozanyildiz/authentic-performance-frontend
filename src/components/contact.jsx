@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Send, Calendar, CheckCircle, AlertCircle } from './Icons';
@@ -13,6 +13,11 @@ function Contact() {
     subject: '',
     message: ''
   });
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
 
   const [status, setStatus] = useState({ type: '', message: '' });
 
@@ -78,7 +83,7 @@ function Contact() {
               </div>
               <div className="info-content">
                 <strong>{t('contact.phone')}</strong>
-                <p>+1 (514) 337-1951</p>
+                <p>+1 (514) 377-6245</p>
               </div>
             </div>
             
@@ -88,7 +93,7 @@ function Contact() {
               </div>
               <div className="info-content">
                 <strong>Email</strong>
-                <p>authenticperformanceproductions@gmail.com</p>
+                <p>tikscaligne@gmail.com</p>
               </div>
             </div>
             

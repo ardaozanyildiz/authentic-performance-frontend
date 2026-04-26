@@ -1,0 +1,198 @@
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F9F8F6;
+  padding: 100px 20px 80px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+}
+
+.about-header.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.about-header h1 {
+  font-size: 2.8rem;
+  color: #4a3728;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Le séparateur dégradé de la page de réservation */
+.section-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #C9B59C, #4a3728);
+  margin: 0 auto 25px auto;
+  border-radius: 2px;
+}
+
+.about-header .subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.about-content {
+  max-width: 1100px; /* Légèrement plus large pour accommoder la photo et le texte */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* La section Histoire (La boîte brune/blanche avec le texte et la photo) */
+.story-section {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(74, 55, 40, 0.08);
+  border-top: 6px solid #C9B59C;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* Nouveau conteneur flexible pour mettre photo et texte côte à côte */
+.story-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px; /* Espace entre la photo et le texte */
+}
+
+/* Wrapper pour la photo */
+.story-photo-wrapper {
+  flex: 0 0 300px; /* Taille fixe de la photo, ne se réduit pas */
+  display: flex;
+  justify-content: center; /* Centre l'image si elle est plus petite */
+}
+
+/* Style de l'image elle-même */
+.founder-photo {
+  width: 100%;
+  max-width: 300px; /* Taille maximale */
+  height: auto;
+  border-radius: 15px; /* Bords arrondis pour le style */
+  box-shadow: 0 10px 30px rgba(74, 55, 40, 0.1); /* Ombre douce pour correspondre aux autres éléments */
+  object-fit: cover; /* Recadre pour remplir, au cas où */
+}
+
+/* Le bloc de texte à droite */
+.story-text {
+  flex: 1; /* Prend tout le reste de l'espace */
+}
+
+/* Titre h2 à l'intérieur du texte (déplacé) */
+.story-text h2 {
+  color: #4a3728;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: left; /* Aligné à gauche maintenant */
+  margin-top: 0; /* Pas de marge en haut car h2 est le premier élément */
+}
+
+.story-text p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: left; /* Aligné à gauche normalement */
+}
+
+/* Section Valeurs (inchangée) */
+.values-section {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.values-section h2 {
+  text-align: center;
+  color: #4a3728;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.value-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(74, 55, 40, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0ebe6;
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(201, 181, 156, 0.2);
+  border-color: #C9B59C;
+}
+
+.value-card h3 {
+  color: #4a3728;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.value-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animations (Les mêmes que partout) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE (Média Query pour mobiles et tablettes) */
+@media (max-width: 900px) {
+  .story-layout {
+    flex-direction: column; /* Photo au-dessus du texte sur petit écran */
+    align-items: center; /* Tout centrer */
+    text-align: center;
+  }
+
+  .story-photo-wrapper {
+    flex: 0 0 auto; /* La photo prend sa taille naturelle */
+    margin-bottom: 30px; /* Espace en dessous de la photo */
+  }
+
+  .founder-photo {
+    max-width: 250px; /* Plus petite sur mobile */
+  }
+
+  .story-text h2 {
+    text-align: center; /* Titre centré sur mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding: 90px 15px 60px;
+  }
+  .story-section {
+    padding: 30px 20px;
+  }
+}

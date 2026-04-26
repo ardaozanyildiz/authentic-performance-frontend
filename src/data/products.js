@@ -6,6 +6,8 @@ const products = [
     id: 1,
     category: 'clothing',
     image: '/images/ImageProduit/tshirtColRond.png',
+    popularity: 100, 
+    complexity: 2,   
     fr: {
       name: 'T-Shirt (Col rond)',
       description: 'Assemblage à grande échelle de t-shirts classiques. Nos experts travaillent avec les tissus (coton, polyester, etc.) que vous nous fournissez pour garantir une qualité de couture constante.',
@@ -21,6 +23,8 @@ const products = [
     id: 2,
     category: 'clothing',
     image: '/images/ImageProduit/tshirtColV.png',
+    popularity: 85,
+    complexity: 3, 
     fr: {
       name: 'T-Shirt (Col V)',
       description: 'Montage précis de t-shirts à col en V. Manipulation experte de vos tricots pour un tombé parfait au niveau de l\'encolure, suivi d\'un pressage professionnel.',
@@ -35,11 +39,13 @@ const products = [
   {
     id: 3,
     category: 'clothing',
-    image: '/images/ImageProduit/chandailMancheLongue.png', // VERIFIE L'EXTENSION SI CE N'EST PAS .jpg
+    image: '/images/ImageProduit/chandailMancheLongue.png',
+    popularity: 75,
+    complexity: 2,
     fr: {
       name: 'Chandail manches longues',
       description: 'Confection de chandails à manches longues. Alignement parfait des coutures d\'épaules et finition des poignets sur vos matériaux.',
-      features: ['Couture de vos matériaux', 'Alignement de précision', 'Finition des ourlets', 'Presse et emballage'],
+      features: ['Couture de vos matériaux', 'Alignement de précision', 'Finition des ouurlets', 'Presse et emballage'],
     },
     en: {
       name: 'Long Sleeve Shirt',
@@ -50,7 +56,9 @@ const products = [
   {
     id: 4,
     category: 'clothing',
-    image: '/images/ImageProduit/cotonOuateCrewneck.png', // VERIFIE L'EXTENSION
+    image: '/images/ImageProduit/cotonOuateCrewneck.png',
+    popularity: 90,
+    complexity: 3,
     fr: {
       name: 'Coton ouaté (Crewneck)',
       description: 'Assemblage robuste de molletons. Nos experts gèrent vos tissus épais pour créer des finitions durables aux poignets et à la taille.',
@@ -66,6 +74,8 @@ const products = [
     id: 5,
     category: 'clothing',
     image: '/images/ImageProduit/contonOuateHoodie.png',
+    popularity: 95,
+    complexity: 4, 
     fr: {
       name: 'Coton ouaté à capuchon (Hoodie)',
       description: 'Confection complexe de hoodies à partir de vos molletons. Montage soigné des capuches doublées et des poches kangourou.',
@@ -81,6 +91,8 @@ const products = [
     id: 6,
     category: 'clothing',
     image: '/images/ImageProduit/jogging.png',
+    popularity: 80,
+    complexity: 3,
     fr: {
       name: 'Pantalon de jogging (Sweatpants)',
       description: 'Montage de pantalons de jogging. Couture extensible et pose de ceintures élastiques sur les tissus que vous fournissez.',
@@ -96,6 +108,8 @@ const products = [
     id: 7,
     category: 'clothing',
     image: '/images/ImageProduit/short.jpg.webp',
+    popularity: 70,
+    complexity: 2,
     fr: {
       name: 'Short décontracté',
       description: 'Production rapide et efficace de shorts de détente. Assemblage de vos toiles ou tricots avec une finition propre et durable.',
@@ -110,7 +124,9 @@ const products = [
   {
     id: 8,
     category: 'clothing',
-    image: '/images/ImageProduit/pantalonChico.webp', // J'utilise le nom de ton fichier même s'il y a une faute de frappe
+    image: '/images/ImageProduit/pantalonChico.webp',
+    popularity: 65,
+    complexity: 5, 
     fr: {
       name: 'Pantalon Chino',
       description: 'Montage rigoureux de pantalons sur vos sergés de coton. Finition professionnelle des poches, braguettes et passants par nos experts.',
@@ -126,6 +142,8 @@ const products = [
     id: 9,
     category: 'clothing',
     image: '/images/ImageProduit/jupe.jpg',
+    popularity: 55,
+    complexity: 4, 
     fr: {
       name: 'Jupe trapèze',
       description: 'Couture de précision pour jupes. Pose de fermetures éclair invisibles et ourlets réguliers sur les tissus fournis par vos soins.',
@@ -141,6 +159,8 @@ const products = [
     id: 10,
     category: 'clothing',
     image: '/images/ImageProduit/robeLegere.jpg.webp',
+    popularity: 60,
+    complexity: 3,
     fr: {
       name: 'Robe d\'été légère',
       description: 'Manipulation experte de vos tissus fluides et délicats. Nos experts assurent un tombé parfait grâce à une presse de haute qualité.',
@@ -156,6 +176,8 @@ const products = [
     id: 11,
     category: 'clothing',
     image: '/images/ImageProduit/camisole.jpg.webp',
+    popularity: 88,
+    complexity: 2,
     fr: {
       name: 'Camisole / Débardeur',
       description: 'Assemblage de hauts sans manches. Finition au biais ou ourlets étroits sur vos tricots légers, suivi d\'un emballage en lot.',
@@ -170,7 +192,9 @@ const products = [
   {
     id: 12,
     category: 'clothing',
-    image: '/images/ImageProduit/vesteCoupeVent.jpg', // J'ai remplacé zip-up par coupe vent car je ne voyais pas de zip-up dans ta liste
+    image: '/images/ImageProduit/vesteCoupeVent.jpg',
+    popularity: 70,
+    complexity: 4,
     fr: {
       name: 'Veste légère (Zip-up)',
       description: 'Montage de vestes légères. Nos experts maîtrisent l\'insertion de fermetures éclair séparables sur les textiles que vous nous confiez.',
@@ -186,6 +210,8 @@ const products = [
     id: 13,
     category: 'clothing',
     image: '/images/ImageProduit/poloClassique.jpg.webp',
+    popularity: 75,
+    complexity: 5, 
     fr: {
       name: 'Polo classique',
       description: 'Confection de polos avec vos mailles piquées. Montage précis de la patte de boutonnage et du col par nos experts de l\'assemblage.',
@@ -205,6 +231,8 @@ const products = [
     id: 14,
     category: 'clothing',
     image: '/images/ImageProduit/leggingSport.jpeg',
+    popularity: 92,
+    complexity: 2, 
     fr: {
       name: 'Legging de sport classique',
       description: 'Utilisation de coutures extensibles (flatlock) sur vos tissus athlétiques (Spandex/Lycra) pour garantir confort et durabilité.',
@@ -220,6 +248,8 @@ const products = [
     id: 15,
     category: 'clothing',
     image: '/images/ImageProduit/leggingPoche.jpg.webp',
+    popularity: 85,
+    complexity: 3,
     fr: {
       name: 'Legging de sport avec poches',
       description: 'Assemblage technique incluant le montage de poches latérales sur vos tissus de compression fournis par le client.',
@@ -235,6 +265,8 @@ const products = [
     id: 16,
     category: 'clothing',
     image: '/images/ImageProduit/brassiereSport.jpg',
+    popularity: 78,
+    complexity: 4, 
     fr: {
       name: 'Brassière de sport (Sports bra)',
       description: 'Confection d\'équipements de maintien. Insertion d\'élastiques et de doublures sur les tissus techniques que vous fournissez.',
@@ -250,6 +282,8 @@ const products = [
     id: 17,
     category: 'clothing',
     image: '/images/ImageProduit/shortCycliste.jpg',
+    popularity: 80,
+    complexity: 3,
     fr: {
       name: 'Short cycliste (Biker short)',
       description: 'Montage de shorts ajustés. Nos experts appliquent des techniques de couture spécialisées sur vos matériaux athlétiques.',
@@ -265,6 +299,8 @@ const products = [
     id: 18,
     category: 'clothing',
     image: '/images/ImageProduit/tshirtRespirant.jpg',
+    popularity: 90,
+    complexity: 2,
     fr: {
       name: 'T-shirt respirant (Dry-fit)',
       description: 'Assemblage délicat de t-shirts d\'entraînement. Nous travaillons avec vos mailles fines pour éviter tout accroc durant la confection.',
@@ -279,7 +315,9 @@ const products = [
   {
     id: 19,
     category: 'clothing',
-    image: '/images/ImageProduit/joggingEntrainement.jpeg.webp', // VERIFIE L'EXTENSION
+    image: '/images/ImageProduit/joggingEntrainement.jpeg.webp',
+    popularity: 75,
+    complexity: 4,
     fr: {
       name: 'Jogging technique d\'entraînement',
       description: 'Fabrication de pantalons de sport haute performance. Pose de fermetures éclair aux chevilles et poches sur vos tissus synthétiques.',
@@ -295,6 +333,8 @@ const products = [
     id: 20,
     category: 'clothing',
     image: '/images/ImageProduit/vesteCoupeVent.jpg',
+    popularity: 65,
+    complexity: 5, 
     fr: {
       name: 'Veste coupe-vent',
       description: 'Montage de vestes de sport sur vos toiles de nylon ou polyester. Finition imperméable des coutures par nos experts.',
@@ -314,6 +354,8 @@ const products = [
     id: 21,
     category: 'workwear',
     image: '/images/ImageProduit/blouseInfermier.png',
+    popularity: 98, // Énorme volume en médical
+    complexity: 2,
     fr: {
       name: 'Blouse d\'infirmier/médecin (Scrub top)',
       description: 'Confection de hauts médicaux. Assemblage de précision de l\'encolure en V et des poches plaquées sur les tissus techniques que vous nous fournissez.',
@@ -329,6 +371,8 @@ const products = [
     id: 22,
     category: 'workwear',
     image: '/images/ImageProduit/pantalonMedical.jpg.webp',
+    popularity: 95,
+    complexity: 3, 
     fr: {
       name: 'Pantalon médical (Cargo Scrub)',
       description: 'Fabrication de pantalons utilitaires médicaux. Nos experts assurent un montage solide des poches cargo multiples sur vos textiles.',
@@ -343,7 +387,9 @@ const products = [
   {
     id: 23,
     category: 'workwear',
-    image: '/images/ImageProduit/blouseIsolation.jpg', // J'ai corrigé l majuscule
+    image: '/images/ImageProduit/blouseIsolation.jpg',
+    popularity: 90,
+    complexity: 2,
     fr: {
       name: 'Blouse d\'isolation',
       description: 'Assemblage sécurisé de blouses de protection. Couture de renfort sur vos textiles barrières avec pose de poignets élastiques.',
@@ -359,6 +405,8 @@ const products = [
     id: 24,
     category: 'workwear',
     image: '/images/ImageProduit/blouseChirurgicale.jpg',
+    popularity: 85,
+    complexity: 4,
     fr: {
       name: 'Blouse chirurgicale (Niveau 1 et 2)',
       description: 'Confection rigoureuse respectant les standards médicaux. Nos experts assemblent vos tissus techniques de haute performance.',
@@ -374,6 +422,8 @@ const products = [
     id: 25,
     category: 'workwear',
     image: '/images/ImageProduit/blousePatient.jpeg',
+    popularity: 88,
+    complexity: 1,
     fr: {
       name: 'Blouse de patient (Fermeture au dos)',
       description: 'Production institutionnelle à grand volume. Assemblage rapide et solide des attaches sur les tissus confortables que vous fournissez.',
@@ -389,6 +439,8 @@ const products = [
     id: 26,
     category: 'workwear',
     image: '/images/ImageProduit/sarrauLaboratoire.png',
+    popularity: 80,
+    complexity: 4, 
     fr: {
       name: 'Sarrau de laboratoire',
       description: 'Montage classique de sarraus professionnels. Pose de boutons pression ou réguliers, et finition des fentes d\'aisance sur vos tissus.',
@@ -407,7 +459,9 @@ const products = [
   {
     id: 27,
     category: 'workwear',
-    image: '/images/ImageProduit/chemiseCorporativeHomme.jpg', // VERIFIE L'EXTENSION
+    image: '/images/ImageProduit/chemiseCorporativeHomme.jpg',
+    popularity: 65,
+    complexity: 5, // Très complexe
     fr: {
       name: 'Chemise boutonnée corporative (Homme)',
       description: 'Couture de précision pour chemises d\'uniforme. Finition impeccable des cols et poignets par nos experts sur vos tissus.',
@@ -422,7 +476,9 @@ const products = [
   {
     id: 28,
     category: 'workwear',
-    image: '/images/ImageProduit/chemiseCorporativeFemme.jpg', // VERIFIE L'EXTENSION
+    image: '/images/ImageProduit/chemiseCorporativeFemme.jpg',
+    popularity: 60,
+    complexity: 5, 
     fr: {
       name: 'Chemise boutonnée corporative (Femme)',
       description: 'Assemblage de chemisiers ajustés. Montage des pinces de taille et finitions soignées sur les matériaux que vous confiez à notre atelier.',
@@ -438,6 +494,8 @@ const products = [
     id: 29,
     category: 'workwear',
     image: '/images/ImageProduit/pantalonTravail.jpg.webp',
+    popularity: 82,
+    complexity: 4, 
     fr: {
       name: 'Pantalon de travail (Workwear)',
       description: 'Confection de pantalons ultra-résistants. Coutures rabattues industrielles et renforts (bartacks) appliqués sur vos toiles épaisses.',
@@ -453,6 +511,8 @@ const products = [
     id: 30,
     category: 'workwear',
     image: '/images/ImageProduit/vesteCuisinier.png.webp',
+    popularity: 75,
+    complexity: 5, 
     fr: {
       name: 'Veste de cuisinier / Chef',
       description: 'Montage de vestes de restauration. Double boutonnage croisé et finitions professionnelles réalisées par nos experts sur vos tissus.',
@@ -468,6 +528,8 @@ const products = [
     id: 31,
     category: 'workwear',
     image: '/images/ImageProduit/tablierBavet.jpg',
+    popularity: 90,
+    complexity: 2,
     fr: {
       name: 'Tablier à bavette (Cuisine)',
       description: 'Fabrication de tabliers protecteurs. Fixation solide des sangles et quincailleries sur les textiles résistants fournis par vos soins.',
@@ -483,6 +545,8 @@ const products = [
     id: 32,
     category: 'workwear',
     image: '/images/ImageProduit/tablierTaille.webp',
+    popularity: 85,
+    complexity: 2,
     fr: {
       name: 'Tablier de taille (Bistro)',
       description: 'Couture rapide et de qualité pour tabliers de service. Montage de multiples poches utilitaires sur vos tissus corporatifs.',
@@ -498,6 +562,8 @@ const products = [
     id: 33,
     category: 'workwear',
     image: '/images/ImageProduit/poloCorporatif.jpg.avif',
+    popularity: 70,
+    complexity: 5,
     fr: {
       name: 'Polo corporatif',
       description: 'Assemblage complet de polos pour entreprise. Finition des fentes latérales et montage de col sur vos mailles piquées.',
@@ -517,6 +583,8 @@ const products = [
     id: 34,
     category: 'linens',
     image: '/images/ImageProduit/drapPlat.jpg.webp',
+    popularity: 100, 
+    complexity: 1, 
     fr: {
       name: 'Drap plat (Toutes tailles)',
       description: 'Production industrielle de literie. Nos experts gèrent la coupe de précision et l\'ourlet sur vos larges rouleaux de tissus.',
@@ -532,6 +600,8 @@ const products = [
     id: 35,
     category: 'linens',
     image: '/images/ImageProduit/drapContour.jpg',
+    popularity: 95,
+    complexity: 2, 
     fr: {
       name: 'Drap contour (Avec élastiques)',
       description: 'Assemblage de draps-housses avec coins renforcés. Pose d\'élastiques en continu sur les textiles que vous fournissez.',
@@ -546,7 +616,9 @@ const products = [
   {
     id: 36,
     category: 'linens',
-    image: '/images/ImageProduit/housseCouette.jpg', // IMAGE MANQUANTE
+    image: '/images/ImageProduit/housseCouette.jpg',
+    popularity: 90,
+    complexity: 3, 
     fr: {
       name: 'Housse de couette',
       description: 'Montage de housses de grande dimension. Création de fermetures à rabat ou boutonnées sur vos tissus hôteliers.',
@@ -561,7 +633,9 @@ const products = [
   {
     id: 37,
     category: 'linens',
-    image: '/images/ImageProduit/tailleOreiller.jpg.avif', // IMAGE MANQUANTE
+    image: '/images/ImageProduit/tailleOreiller.jpg.avif',
+    popularity: 98,
+    complexity: 1,
     fr: {
       name: 'Taie d\'oreiller standard',
       description: 'Confection en série de taies d\'oreiller. Ourlets et rabats intérieurs parfaitement exécutés par nos experts sur vos tissus.',
@@ -576,7 +650,9 @@ const products = [
   {
     id: 38,
     category: 'linens',
-    image: '/images/ImageProduit/tailleOreiller.jpg.avif', // J'ai utilisé celle-là pour le format King
+    image: '/images/ImageProduit/tailleOreiller.jpg.avif',
+    popularity: 80,
+    complexity: 1,
     fr: {
       name: 'Taie d\'oreiller format King',
       description: 'Production adaptée aux formats larges. Finitions de type hôtelier avec points de renfort sur le textile que vous nous confiez.',
@@ -592,6 +668,8 @@ const products = [
     id: 39,
     category: 'linens',
     image: '/images/ImageProduit/couvreMatela.webp',
+    popularity: 85,
+    complexity: 3, 
     fr: {
       name: 'Couvre-matelas protecteur',
       description: 'Assemblage de protecteurs matelassés. Couture sur vos tissus barrières ou imperméables, avec finition des bords élastiques.',
@@ -607,6 +685,8 @@ const products = [
     id: 40,
     category: 'linens',
     image: '/images/ImageProduit/bavoirAdulte.jpg',
+    popularity: 90,
+    complexity: 2,
     fr: {
       name: 'Bavoir pour adulte / institutionnel',
       description: 'Fabrication de protections institutionnelles. Nos experts appliquent des finitions au biais sur vos matériaux absorbants.',
@@ -622,6 +702,8 @@ const products = [
     id: 41,
     category: 'linens',
     image: '/images/ImageProduit/servietteBain.jpg.webp',
+    popularity: 95,
+    complexity: 1, 
     fr: {
       name: 'Serviette de bain (Finition des ourlets)',
       description: 'Service de finition pour la literie de bain. Nous réalisons les ourlets industriels de chaque côté de vos rouleaux d\'éponge.',
@@ -636,7 +718,9 @@ const products = [
   {
     id: 42,
     category: 'linens',
-    image: '/images/ImageProduit/debarbouillette.jpeg', // IMAGE MANQUANTE
+    image: '/images/ImageProduit/debarbouillette.jpeg',
+    popularity: 92,
+    complexity: 1,
     fr: {
       name: 'Débarbouillette',
       description: 'Production à très grand volume. Coupe et ourlets rapides réalisés par nos experts sur les tissus éponges de nos clients.',
@@ -652,6 +736,8 @@ const products = [
     id: 43,
     category: 'linens',
     image: '/images/ImageProduit/nape.jpg',
+    popularity: 70,
+    complexity: 1,
     fr: {
       name: 'Nappe de restaurant',
       description: 'Couture de grandes surfaces pour la restauration. Finition des bordures sur les tissus antitaches que vous fournissez.',
@@ -667,6 +753,8 @@ const products = [
     id: 44,
     category: 'linens',
     image: '/images/ImageProduit/servietteTable.jpg.webp',
+    popularity: 75,
+    complexity: 2, 
     fr: {
       name: 'Serviette de table en tissu',
       description: 'Finition de petites pièces de linge de table. Réalisation d\'ourlets fins de type point bourdon ou droit sur vos textiles.',

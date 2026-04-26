@@ -1,97 +1,90 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; 
 import './chatbot.css';
 
 function Chatbot() {
+  const { t } = useTranslation(); 
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
   const messagesEndRef = useRef(null);
 
-  // Message d'accueil par défaut
+
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: "Bonjour ! 👋 Je suis l'assistant d'Authentic Performance Production. Nous sommes un atelier québécois spécialisé dans l'assemblage et la confection textile. Comment puis-je vous aider ?"
+      textKey: 'chatbot.welcome' 
     }
   ]);
 
-  // Fait défiler le chat vers le bas à chaque nouveau message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isOpen]);
 
-  // Le "cerveau" du bot : analyse les mots clés
   const analyzeAndRespond = (userText) => {
     const text = userText.toLowerCase();
     
     setTimeout(() => {
-      let botResponse = "";
-
-      // 1. Logique pour le Minimum de commande (MOQ)
-      if (text.includes('minimum') || text.includes('quantité') || text.includes('combien') || text.includes('moq')) {
-        botResponse = "Notre minimum de commande recommandé est de 50 unités, et nous n'avons pas de maximum ! Nous avons la capacité de gérer des productions à très grande échelle.";
-        addBotMessage(botResponse, '/rendez-vous', 'Évaluer mon projet');
+      // Minimum de commande
+      if (text.includes('minimum') || text.includes('quantité') || text.includes('moq') || text.includes('quantity') || text.includes('how many')) {
+        addBotMessage('chatbot.resp_moq', '/rendez-vous', 'chatbot.link_moq');
       }
-      // 2. Logique pour les prototypes / échantillons
-      else if (text.includes('prototype') || text.includes('échantillon') || text.includes('echantillon') || text.includes('exemple') || text.includes('tester')) {
-        botResponse = "Oui, tout à fait ! Nous réalisons toujours des échantillons et des prototypes avant de lancer la production finale pour nous assurer que tout correspond à vos attentes.";
-        addBotMessage(botResponse, '/contact', 'Demander un prototype');
+      // Prototypes 
+      else if (text.includes('prototype') || text.includes('échantillon') || text.includes('echantillon') || text.includes('sample') || text.includes('test')) {
+        addBotMessage('chatbot.resp_proto', '/contact', 'chatbot.link_proto');
       }
-      // 3. Logique pour les délais
-      else if (text.includes('délai') || text.includes('temps') || text.includes('quand') || text.includes('longtemps') || text.includes('durée')) {
-        botResponse = "Nos délais de production varient de 1 à 4 semaines, tout dépendant de l'envergure et de la complexité de votre projet.";
-        addBotMessage(botResponse, '/contact', 'Vérifier nos disponibilités');
+      // Delais
+      else if (text.includes('délai') || text.includes('temps') || text.includes('quand') || text.includes('time') || text.includes('delay') || text.includes('how long')) {
+        addBotMessage('chatbot.resp_delai', '/contact', 'chatbot.link_delai');
       }
-      // 4. Logique pour les prix / soumissions
-      else if (text.includes('prix') || text.includes('coût') || text.includes('coût') || text.includes('soumission') || text.includes('tarif')) {
-        botResponse = "Nos prix d'assemblage sont calculés sur mesure selon vos spécifications, le temps de coupe et de couture. Contactez-nous pour une soumission exacte !";
-        addBotMessage(botResponse, '/contact', 'Demander une soumission');
+      // Prix 
+      else if (text.includes('prix') || text.includes('coût') || text.includes('soumission') || text.includes('tarif') || text.includes('price') || text.includes('cost') || text.includes('quote')) {
+        addBotMessage('chatbot.resp_prix', '/contact', 'chatbot.link_prix');
       }
-      // 5. Logique de Contact direct
-      else if (text.includes('contact') || text.includes('email') || text.includes('appeler') || text.includes('téléphone') || text.includes('telephone')) {
-        botResponse = "Pour toute question spécifique, notre équipe est là pour vous ! Voulez-vous aller sur notre page de contact ?";
-        addBotMessage(botResponse, '/contact', 'Aller vers Contact');
+      // Contact 
+      else if (text.includes('contact') || text.includes('email') || text.includes('appeler') || text.includes('call') || text.includes('phone')) {
+        addBotMessage('chatbot.resp_contact', '/contact', 'chatbot.link_contact');
       } 
-      // 6. Logique de Rendez-vous
-      else if (text.includes('rendez-vous') || text.includes('rencontre') || text.includes('visiter') || text.includes('rdv')) {
-        botResponse = "Super ! Nous serions ravis de discuter de votre projet de production. Nos consultations se font le vendredi à notre atelier de Montréal.";
-        addBotMessage(botResponse, '/rendez-vous', 'Prendre un rendez-vous');
+      // Rendez-vous
+      else if (text.includes('rendez-vous') || text.includes('rencontre') || text.includes('rdv') || text.includes('appointment') || text.includes('meeting')) {
+        addBotMessage('chatbot.resp_rdv', '/rendez-vous', 'chatbot.link_rdv');
       }
-      // Réponse par défaut si le bot ne comprend pas
       else {
-        botResponse = "Pour avoir une réponse précise sur notre confection textile ou discuter de votre projet, le mieux est de parler directement à l'un de nos experts.";
-        addBotMessage(botResponse, '/contact', 'Contacter un expert');
+        addBotMessage('chatbot.resp_default', '/contact', 'chatbot.link_default');
       }
     }, 600);
   };
 
-  const addBotMessage = (text, linkPath = null, linkText = null) => {
-    setMessages(prev => [...prev, { sender: 'bot', text, linkPath, linkText }]);
+  const addBotMessage = (textKey, linkPath = null, linkTextKey = null) => {
+    setMessages(prev => [...prev, { sender: 'bot', textKey, linkPath, linkTextKey }]);
+  };
+
+  const addUserMessage = (text, textKey = null) => {
+    setMessages(prev => [...prev, { sender: 'user', text, textKey }]);
   };
 
   const handleSend = (e) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
-    setMessages(prev => [...prev, { sender: 'user', text: inputValue }]);
+    addUserMessage(inputValue);
     analyzeAndRespond(inputValue);
     setInputValue('');
   };
 
-  // Les "Boutons Rapides"
   const handleQuickButton = (action) => {
     if (action === 'moq') {
-      setMessages(prev => [...prev, { sender: 'user', text: "Quel est le minimum de commande ?" }]);
+      addUserMessage(null, 'chatbot.user_moq');
       analyzeAndRespond("quantité");
     } else if (action === 'delai') {
-      setMessages(prev => [...prev, { sender: 'user', text: "Quels sont les délais ?" }]);
+      addUserMessage(null, 'chatbot.user_delai');
       analyzeAndRespond("délai");
     } else if (action === 'proto') {
-      setMessages(prev => [...prev, { sender: 'user', text: "Faites-vous des prototypes ?" }]);
+      addUserMessage(null, 'chatbot.user_proto');
       analyzeAndRespond("prototype");
     } else if (action === 'rdv') {
-      setMessages(prev => [...prev, { sender: 'user', text: "Prendre un rendez-vous" }]);
+      addUserMessage(null, 'chatbot.user_rdv');
       analyzeAndRespond("rendez-vous");
     }
   };
@@ -102,8 +95,8 @@ function Chatbot() {
         <div className="chatbot-window">
           <div className="chatbot-header">
             <div>
-              <h3>Assistant Authentic</h3>
-              <p>Atelier de Confection</p>
+              <h3>{t('chatbot.title')}</h3>
+              <p>{t('chatbot.subtitle')}</p>
             </div>
             <button className="close-bot" onClick={() => setIsOpen(false)}>✕</button>
           </div>
@@ -111,7 +104,8 @@ function Chatbot() {
           <div className="chatbot-messages">
             {messages.map((msg, index) => (
               <div key={index} className={`message-bubble ${msg.sender}`}>
-                <p>{msg.text}</p>
+                <p>{msg.textKey ? t(msg.textKey) : msg.text}</p> 
+                
                 {msg.linkPath && (
                   <button 
                     className="bot-link-btn" 
@@ -120,18 +114,17 @@ function Chatbot() {
                       setIsOpen(false);
                     }}
                   >
-                    {msg.linkText} →
+                    {t(msg.linkTextKey)} →
                   </button>
                 )}
               </div>
             ))}
             
-            {/* Les boutons rapides sont maintenant affichés en permanence à la fin du chat */}
             <div className="quick-actions" style={{ marginBottom: '10px' }}>
-              <button onClick={() => handleQuickButton('moq')}>Quantité minimale ?</button>
-              <button onClick={() => handleQuickButton('delai')}>Délais de production ?</button>
-              <button onClick={() => handleQuickButton('proto')}>Échantillons/Prototypes ?</button>
-              <button onClick={() => handleQuickButton('rdv')}>Rendez-vous</button>
+              <button onClick={() => handleQuickButton('moq')}>{t('chatbot.btn_moq')}</button>
+              <button onClick={() => handleQuickButton('delai')}>{t('chatbot.btn_delai')}</button>
+              <button onClick={() => handleQuickButton('proto')}>{t('chatbot.btn_proto')}</button>
+              <button onClick={() => handleQuickButton('rdv')}>{t('chatbot.btn_rdv')}</button>
             </div>
             
             <div ref={messagesEndRef} />
@@ -140,7 +133,7 @@ function Chatbot() {
           <form className="chatbot-input" onSubmit={handleSend}>
             <input 
               type="text" 
-              placeholder="Posez votre question..." 
+              placeholder={t('chatbot.placeholder')} 
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />

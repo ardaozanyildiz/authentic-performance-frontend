@@ -11,7 +11,14 @@ const ALL_TIMES = [
 ];
 
 function RendezVous() {
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
+
   const { t, i18n } = useTranslation();
+
   
   const currentLocale = i18n.language.startsWith('fr') ? 'fr-FR' : 'en-US';
 
@@ -22,7 +29,7 @@ function RendezVous() {
   const [formData, setFormData] = useState({
     clientName: '',
     clientEmail: '',
-    serviceType: 'Couture sur mesure' // Correspond maintenant parfaitement au menu déroulant
+    serviceType: 'Couture sur mesure' 
   });
   const [status, setStatus] = useState({ type: '', message: '' });
 

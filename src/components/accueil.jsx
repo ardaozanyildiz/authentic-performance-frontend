@@ -75,7 +75,6 @@ function Accueil() {
             <div className="about-features">
               <div className="feature-item">
                 <CheckCircle size={20} />
-                {/* CORRECTION : Remis les variables t() */}
                 <span>{t('homeAbout.feature1')}</span>
               </div>
            
@@ -95,12 +94,10 @@ function Accueil() {
 
       <section className="clients-section">
         <div className="clients-container">
-          {/* CORRECTION : Remis les variables t() */}
           <h2 className="clients-title animate-fade-in-up">{t('partners.title')}</h2>
           <p className="clients-subtitle animate-fade-in-up stagger-1">{t('partners.subtitle')}</p>
           
           <div className="clients-grid">
-            {/* Les noms d'entreprises restent en texte car ce sont des marques */}
             <div className="client-card animate-fade-in-up stagger-1">
               <span>Luc Fontaine Design inc</span>
             </div>
@@ -124,7 +121,6 @@ function Accueil() {
         <div className="stats-container">
           <div className="stat-item animate-fade-in-up stagger-1">
             <span className="stat-number">30+</span>
-            {/* CORRECTION : Remis les variables t() */}
             <span className="stat-label">{t('stats.years')}</span>
           </div>
           <div className="stat-item animate-fade-in-up stagger-2">

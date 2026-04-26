@@ -8,8 +8,10 @@ import Contact from './components/contact';
 import Login from './components/login';
 import Signup from './components/signup';
 import RendezVous from './components/rendezVous';
-import Chatbot from './components/chatbot'; // <-- 1. ON IMPORTE LE CHATBOT ICI
+import Chatbot from './components/chatbot';
 import AnnulerRendezVous from './components/annulerRendezVous';
+import Processus from './components/processus'; 
+import APropos from './components/aPropos';
 import './App.css';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" element={<Accueil />} />
           <Route path="/products" element={<Produits />} />
           <Route path="/products/:id" element={<ProduitDetail />} />
+          <Route path="/processus" element={<Processus />} /> {/* <-- NOUVEAU */}
+          <Route path="/a-propos" element={<APropos />} /> {/* <-- NOUVEAU */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -29,8 +33,6 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      
-      {/* 2. ON PLACE LE CHATBOT ICI */}
       <Chatbot />
     </div>
   );

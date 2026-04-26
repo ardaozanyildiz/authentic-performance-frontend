@@ -6,10 +6,8 @@ import './navbar.css';
 function Navbar() {
   const { t, i18n } = useTranslation();
   
-  // Détection de la langue actuelle
   const langue = i18n.resolvedLanguage && i18n.resolvedLanguage.startsWith('fr') ? 'fr' : 'en';
 
-  // Fonction pour changer de langue
   const changement = () => {
     i18n.changeLanguage(langue === 'fr' ? 'en' : 'fr');
   };
@@ -17,11 +15,12 @@ function Navbar() {
   return (
     <header className="navbar">
       <nav className="nav-links">
-        {/* Des liens simples et directs, sans logique de surbrillance */}
         <Link to="/">{t('nav.home')}</Link>
         <Link to="/products">{t('nav.products')}</Link>
+        <Link to="/processus">{t('nav.process')}</Link>
         <Link to="/contact">{t('nav.contact')}</Link>
         <Link to="/rendez-vous">{t('nav.rendezVous')}</Link>
+        <Link to="/a-propos">{t('nav.about')}</Link>
       </nav>
 
       <Link to="/" className="nav-logo">
