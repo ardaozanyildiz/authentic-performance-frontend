@@ -27,10 +27,7 @@ function Footer() {
                 <Phone size={18} />
                 <span>+1 (514) 377-6245</span>
               </div>
-              <div className="contact-item">
-                <Mail size={18} />
-                <span>tikscaligne@gmail.com</span>
-              </div>
+              
               <div className="contact-item">
                 <Clock size={18} />
                 <span>{t('contact.hoursValue')}</span>

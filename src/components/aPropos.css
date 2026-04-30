@@ -186,6 +186,11 @@
   .story-text h2 {
     text-align: center; /* Titre centré sur mobile */
   }
+
+  /* --- CORRECTION ICI : On empile les valeurs au lieu de les garder sur la même ligne --- */
+  .values-grid {
+    grid-template-columns: 1fr; 
+  }
 }
 
 @media (max-width: 600px) {

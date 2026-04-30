@@ -1,3 +1,11 @@
+/* --- SÉCURITÉ ANTI-DÉBORDEMENT MOBILE --- */
+html, body {
+  overflow-x: hidden; /* Empêche de glisser vers la droite */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .app-wrapper {
   display: flex;
   flex-direction: column;

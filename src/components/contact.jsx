@@ -87,15 +87,7 @@ function Contact() {
               </div>
             </div>
             
-            <div className="info-item">
-              <div className="info-icon">
-                <Mail size={22} />
-              </div>
-              <div className="info-content">
-                <strong>Email</strong>
-                <p>tikscaligne@gmail.com</p>
-              </div>
-            </div>
+          
             
             <div className="info-item">
               <div className="info-icon">
