@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import { useTranslation } from 'react-i18next';
 import { Clock, User, Mail, Briefcase, CalendarDays, CheckCircle, MessageSquare, Palette, FileText } from './icons';
-import 'react-calendar/dist/calendar.css';
+import 'react-calendar/dist/Calendar.css';
 import './rendezVous.css'; 
 
 const ALL_TIMES = [
