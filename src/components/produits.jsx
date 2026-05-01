@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Shirt, Bed, HardHat, Grid3X3, ArrowRight, Store, Search } from './Icons';
+import { Shirt, Bed, HardHat, Grid3X3, ArrowRight, Store, Search } from './icons';
 import products from '../data/products';
 import './produits.css';
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'; 
-import './AnnulerRendezVous.css';
+import './annulerRendezVous.css';
 
 function AnnulerRendezVous() {
   const { id } = useParams();

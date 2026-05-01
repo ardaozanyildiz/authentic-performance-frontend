@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Phone, Mail, Clock } from './Icons';
+import { MapPin, Phone, Mail, Clock } from './icons';
 import './footer.css';
 
 function Footer() {

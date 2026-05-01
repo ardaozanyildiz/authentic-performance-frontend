@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import { useTranslation } from 'react-i18next';
-import { Scissors, Wind, Package, ArrowRight, CheckCircle } from './Icons';
+import { Scissors, Wind, Package, ArrowRight, CheckCircle } from './icons';
 import './accueil.css';
 
 function Accueil() {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Send, Calendar, CheckCircle, AlertCircle } from './Icons';
+import { MapPin, Phone, Mail, Clock, Send, Calendar, CheckCircle, AlertCircle } from './icons';
 import './contact.css';
 
 function Contact() {

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { User, Mail, Lock, UserPlus, LogIn } from './Icons';
+import { User, Mail, Lock, UserPlus, LogIn } from './icons';
 import './signup.css';
 
 function Signup() {

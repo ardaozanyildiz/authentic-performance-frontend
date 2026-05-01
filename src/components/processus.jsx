@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import './Processus.css';
+import './processus.css';
 
 function Processus() {
   const { t } = useTranslation();

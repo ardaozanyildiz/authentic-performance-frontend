@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, Check, Store, Calendar, Phone, MapPin, Shirt, Bed, HardHat } from './Icons';
+import { ArrowLeft, Check, Store, Calendar, Phone, MapPin, Shirt, Bed, HardHat } from './icons';
 import Footer from './footer'; 
 import products from '../data/products';
 import './produitDetail.css';
