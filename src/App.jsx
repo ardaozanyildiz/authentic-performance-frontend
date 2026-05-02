@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/footer';
@@ -15,6 +16,15 @@ import APropos from './components/aPropos';
 import './App.css';
 
 function App() {
+  
+  useEffect(() => {
+    const backendUrl = "https://authentic-performance-backend.onrender.com"; 
+
+    fetch(backendUrl)
+      .then(() => console.log("Réveil du serveur lancé..."))
+      .catch(() => console.log("Le serveur se réveille tranquillement."));
+  }, []);
+
   return (
     <div className="app-wrapper">
       <Navbar />
@@ -23,8 +33,8 @@ function App() {
           <Route path="/" element={<Accueil />} />
           <Route path="/products" element={<Produits />} />
           <Route path="/products/:id" element={<ProduitDetail />} />
-          <Route path="/processus" element={<Processus />} /> {/* <-- NOUVEAU */}
-          <Route path="/a-propos" element={<APropos />} /> {/* <-- NOUVEAU */}
+          <Route path="/processus" element={<Processus />} /> 
+          <Route path="/a-propos" element={<APropos />} /> 
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
